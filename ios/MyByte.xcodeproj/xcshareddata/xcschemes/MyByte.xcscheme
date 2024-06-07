@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "patternApp.app"
-               BlueprintName = "patternApp"
-               ReferencedContainer = "container:patternApp.xcodeproj">
+               BuildableName = "myByte.app"
+               BlueprintName = "myByte"
+               ReferencedContainer = "container:myByte.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "patternAppTests.xctest"
-               BlueprintName = "patternAppTests"
-               ReferencedContainer = "container:patternApp.xcodeproj">
+               BuildableName = "myByteTests.xctest"
+               BlueprintName = "myByteTests"
+               ReferencedContainer = "container:myByte.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "patternApp.app"
-            BlueprintName = "patternApp"
-            ReferencedContainer = "container:patternApp.xcodeproj">
+            BuildableName = "myByte.app"
+            BlueprintName = "myByte"
+            ReferencedContainer = "container:myByte.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "patternApp.app"
-            BlueprintName = "patternApp"
-            ReferencedContainer = "container:patternApp.xcodeproj">
+            BuildableName = "myByte.app"
+            BlueprintName = "myByte"
+            ReferencedContainer = "container:myByte.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

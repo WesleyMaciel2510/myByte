@@ -1,4 +1,4 @@
-package com.patternapp
+package com.mybyte
 
 import android.app.Application
 import com.facebook.react.PackageList
