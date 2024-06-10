@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  FlatList,
   Image,
   ImageBackground,
   SafeAreaView,
@@ -8,11 +9,12 @@ import {
   View,
 } from 'react-native';
 import Button from '../../components/Button/button';
-//import {useInit, useSharedState} from './logic';
+import {/* useInit, useSharedState */ flatListImages} from './logic';
 import {Navigation} from '../../context/interface';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import CardHome from '../../components/Cards/cardHome';
 
-const HomeScreen: React.FC<Navigation> = ({navigation}) => {
+const Home: React.FC<Navigation> = ({navigation}) => {
   //const {loading, setLoading} = useSharedState();
   //useInit();
   // ============================================================================
@@ -48,10 +50,46 @@ const HomeScreen: React.FC<Navigation> = ({navigation}) => {
             </Text>
           </View>
 
+          <View style={{flexDirection: 'row', paddingHorizontal: 10}}>
+            <View style={{flex: 1}}>
+              <CardHome
+                onPress={() => console.log('Card1 pressed')}
+                text="Restaurante"
+              />
+            </View>
+            <View style={{flex: 1}}>
+              <CardHome
+                onPress={() => console.log('Card2 pressed')}
+                text="Lanche"
+              />
+            </View>
+          </View>
+          <View style={{flexDirection: 'row', paddingHorizontal: 10}}>
+            <View style={{flex: 1}}>
+              <CardHome
+                onPress={() => console.log('Card1 pressed')}
+                text="Farmácias"
+                //imgPath={require('../../assets/images/medicalKit.png')}
+              />
+            </View>
+            <View style={{flex: 1}}>
+              <CardHome
+                onPress={() => console.log('Card2 pressed')}
+                text="Bebidas"
+                //imgPath={require('../../assets/images/drink.png')}
+              />
+            </View>
+          </View>
+
           <View style={styles.bannerArea}>
-            <Image
-              source={require('../../assets/images/banner1.png')}
-              style={[styles.image, styles.banner]}
+            <FlatList
+              horizontal
+              data={flatListImages}
+              renderItem={({item}) => (
+                <Image source={item} style={styles.banner} />
+              )}
+              keyExtractor={(item, index) => index.toString()}
+              showsHorizontalScrollIndicator={false}
             />
           </View>
         </View>
@@ -102,18 +140,18 @@ const styles = StyleSheet.create({
   },
   bannerArea: {
     flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    justifyContent: 'flex-end',
     marginBottom: 100,
+    marginLeft: 20,
   },
   banner: {
     width: 350,
     height: 200,
-    right: 50,
-    bottom: 10,
     alignItems: 'center',
     alignSelf: 'flex-end',
-    borderRadius: 30,
+    marginHorizontal: 15,
+    borderRadius: 10,
   },
   roundedCornerOverlay: {
     position: 'absolute',
@@ -143,4 +181,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default Home;

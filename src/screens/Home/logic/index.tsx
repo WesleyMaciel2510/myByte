@@ -17,3 +17,10 @@ export const useInit = () => {
     console.log('useInit working!!');
   }, []);
 };
+
+export const flatListImages = [
+  require('../../../assets/images/banner/banner1.png'),
+  require('../../../assets/images/banner/banner2.png'),
+  //require('../../../assets/images/banner3.png'),
+  //require('../../../assets/images/banner4.png'),
+];

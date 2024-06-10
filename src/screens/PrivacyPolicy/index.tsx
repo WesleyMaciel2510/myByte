@@ -1,43 +1,24 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
+import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 
-export default function PrivacyPolicy({navigation}) {
-  const isDarkMode = useColorScheme() === 'dark';
+import {Navigation} from '../../context/interface';
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+const PrivacyPolicy: React.FC<Navigation> = ({navigation}) => {
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
+    <SafeAreaView>
       <ScrollView>
-        <Header />
-        <View
-          style={[
-            styles.container,
-            {backgroundColor: isDarkMode ? Colors.black : Colors.white},
-          ]}>
-          <Text> Home Screen</Text>
+        <View style={styles.container}>
+          <Text> PrivacyPolicy Screen</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
   );
-}
+};
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     flex: 1,
   },
 });
+
+export default PrivacyPolicy;

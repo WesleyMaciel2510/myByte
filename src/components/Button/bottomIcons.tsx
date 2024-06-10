@@ -20,7 +20,7 @@ const BottomIcons: React.FC<{}> = () => {
         <Icon name="search" size={25} color={iconColor} />
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => navigation.navigate('Search')}
+        onPress={() => navigation.navigate('Orders')}
         style={styles.iconContainer}>
         <Icon name="file-text-o" size={25} color={iconColor} />
       </TouchableOpacity>
