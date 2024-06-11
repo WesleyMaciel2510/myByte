@@ -13,13 +13,14 @@ import {/* useInit, useSharedState */ flatListImages} from './logic';
 import {Navigation} from '../../context/interface';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import CardHome from '../../components/Cards/cardHome';
+import {globalStyles} from '../../styles/globalStyles';
 
 const Home: React.FC<Navigation> = ({navigation}) => {
   //const {loading, setLoading} = useSharedState();
   //useInit();
   // ============================================================================
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView style={globalStyles.container}>
       <View style={styles.container}>
         <ImageBackground
           source={require('../../assets/images/food.jpg')}
@@ -83,9 +84,6 @@ const Home: React.FC<Navigation> = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-  },
   container: {
     flex: 1,
     width: '100%',
