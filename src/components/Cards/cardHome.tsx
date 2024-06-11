@@ -14,14 +14,11 @@ interface CardProps {
   imgPath?: ImageSourcePropType;
 }
 
-const CardHome: React.FC<CardProps> = ({onPress, text /* imgPath */}) => {
+const CardHome: React.FC<CardProps> = ({onPress, text, imgPath}) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.card}>
       <View>
-        <Image
-          source={require('../../assets/images/restaurant.png')}
-          style={{width: 200, height: 200}}
-        />
+        <Image source={imgPath} style={styles.image} resizeMode="contain" />
       </View>
 
       <Text style={styles.text}>{text}</Text>
@@ -39,7 +36,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 200,
-    height: 200,
+    height: 100,
     borderRadius: 5,
     marginBottom: 10,
   },

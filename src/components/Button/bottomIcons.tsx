@@ -2,13 +2,14 @@ import React from 'react';
 import {View, TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation} from '@react-navigation/native';
+import {Colors} from '../../styles/colors';
 
 const BottomIcons: React.FC<{}> = () => {
   const navigation = useNavigation();
   const iconColor = '#fff';
 
   return (
-    <View style={[styles.container, {backgroundColor: '#F72020'}]}>
+    <View style={[styles.container, {backgroundColor: Colors.red}]}>
       <TouchableOpacity
         onPress={() => navigation.navigate('Home')}
         style={styles.iconContainer}>

@@ -13,7 +13,7 @@ import {globalStyles} from '../../styles/globalStyles';
 
 const Profile: React.FC<Navigation> = ({navigation}) => {
   return (
-    <SafeAreaView style={globalStyles.container}>
+    <SafeAreaView style={[globalStyles.container, {paddingHorizontal: 20}]}>
       <ScrollView>
         <View>
           <View style={styles.headerArea}>

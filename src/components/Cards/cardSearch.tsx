@@ -5,7 +5,6 @@ import {
   Image,
   StyleSheet,
   ImageSourcePropType,
-  View,
 } from 'react-native';
 
 interface CardProps {
@@ -21,7 +20,6 @@ const CardSearch: React.FC<CardProps> = ({onPress, text, imgPath, color}) => {
       onPress={onPress}
       style={[styles.card, {backgroundColor: color}]}>
       <Image
-        /* source={require('../../assets/images/restaurant.png')} */
         source={imgPath}
         style={{width: 150, height: 100}}
         resizeMode="contain"

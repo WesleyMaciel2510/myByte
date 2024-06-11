@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import Button from '../../components/Button/button';
@@ -14,6 +15,7 @@ import {Navigation} from '../../context/interface';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import CardHome from '../../components/Cards/cardHome';
 import {globalStyles} from '../../styles/globalStyles';
+import {Colors} from '../../styles/colors';
 
 const Home: React.FC<Navigation> = ({navigation}) => {
   //const {loading, setLoading} = useSharedState();
@@ -55,15 +57,38 @@ const Home: React.FC<Navigation> = ({navigation}) => {
             <View style={{flex: 1}}>
               <CardHome
                 onPress={() => console.log('Card1 pressed')}
+                imgPath={require('../../assets/images/restaurant.png')}
                 text="Restaurante"
               />
             </View>
             <View style={{flex: 1}}>
               <CardHome
                 onPress={() => console.log('Card2 pressed')}
+                imgPath={require('../../assets/images/snack.png')}
                 text="Lanche"
               />
             </View>
+          </View>
+          <View
+            style={{
+              padding: 10,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <TouchableOpacity
+              onPress={() => console.log('')}
+              style={[
+                styles.button,
+                {backgroundColor: Colors.red, flexDirection: 'row'},
+              ]}>
+              <Icon
+                name="plus"
+                size={25}
+                color={'#fff'}
+                style={{marginHorizontal: 10}}
+              />
+              <Text style={{color: '#fff', fontSize: 20}}>Opções</Text>
+            </TouchableOpacity>
           </View>
 
           <View style={styles.bannerArea}>
@@ -112,7 +137,7 @@ const styles = StyleSheet.create({
     width: 70,
     height: 100,
     right: 50,
-    top: 150,
+    top: 170,
   },
   title: {
     width: 200,
@@ -160,6 +185,13 @@ const styles = StyleSheet.create({
   buttonContainer: {
     alignItems: 'center',
     marginTop: 200,
+  },
+  button: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+    borderRadius: 15,
+    width: '35%',
   },
 });
 
