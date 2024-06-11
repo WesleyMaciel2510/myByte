@@ -5,13 +5,14 @@ import PrivacyPolicy from '../screens/PrivacyPolicy';
 import Search from '../screens/Search';
 import Orders from '../screens/Orders';
 import Profile from '../screens/Profile';
+import Address from '../screens/Address';
 
 const Stack = createNativeStackNavigator();
 
 const AppStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Search"
+      initialRouteName="Address"
       screenOptions={{
         headerShown: false,
         headerTitle: '',
@@ -21,6 +22,7 @@ const AppStack = () => {
       <Stack.Screen name="Search" component={Search} />
       <Stack.Screen name="Orders" component={Orders} />
       <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="Address" component={Address} />
 
       <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
     </Stack.Navigator>

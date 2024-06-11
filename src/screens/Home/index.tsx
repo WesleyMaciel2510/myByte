@@ -16,10 +16,16 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import CardHome from '../../components/Cards/cardHome';
 import {globalStyles} from '../../styles/globalStyles';
 import {Colors} from '../../styles/colors';
+import {useSharedGlobalState} from '../../helpers/globalUseState';
 
 const Home: React.FC<Navigation> = ({navigation}) => {
   //const {loading, setLoading} = useSharedState();
+  const {currentAddress} = useSharedGlobalState();
   //useInit();
+
+  // ============================================================================
+  const match = currentAddress.match(/(.*?\d+)/); //regex to show only
+  const streetAndNumber = match ? match[0] : ''; //street and number
   // ============================================================================
   return (
     <SafeAreaView style={globalStyles.container}>
@@ -46,12 +52,14 @@ const Home: React.FC<Navigation> = ({navigation}) => {
         </ImageBackground>
         <View style={styles.roundedCornerOverlay} />
         <View style={styles.contentArea}>
-          <View>
+          <TouchableOpacity onPress={() => navigation.navigate('Address')}>
             <Text style={styles.titleText}>
-              R. Leopoldino de Oliveira, 110{' '}
+              {currentAddress.length > 0
+                ? streetAndNumber
+                : 'Ativar Localização'}
               <Icon name="chevron-down" size={20} color={'#F72020'} />
             </Text>
-          </View>
+          </TouchableOpacity>
 
           <View style={{flexDirection: 'row', paddingHorizontal: 10}}>
             <View style={{flex: 1}}>
@@ -178,7 +186,7 @@ const styles = StyleSheet.create({
   titleText: {
     textAlign: 'center',
     padding: 20,
-    fontSize: 18,
+    fontSize: 16,
     color: 'black',
     fontWeight: 'bold',
   },
