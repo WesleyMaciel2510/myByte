@@ -45,7 +45,7 @@ const Search: React.FC<Navigation> = ({navigation}) => {
             />
             <CardSearch
               onPress={() => console.log('Card2 pressed')}
-              text="Farmácias"
+              text="Farmácia"
               imgPath={require('../../assets/images/medicalKit.png')}
               color={'#ADD8E6'}
             />
@@ -73,22 +73,22 @@ const Search: React.FC<Navigation> = ({navigation}) => {
             />
             <CardSearch
               onPress={() => console.log('Card2 pressed')}
-              text="Bebidas"
-              imgPath={require('../../assets/images/drink.png')}
+              text="Espetinho"
+              imgPath={require('../../assets/images/yakitori.png')}
               color={'#ADD8E6'}
             />
           </View>
           <View style={styles.line}>
             <CardSearch
               onPress={() => console.log('Card1 pressed')}
-              text="Restaurante"
+              text="Sorvete"
               imgPath={require('../../assets/images/icecream.png')}
               color={'#ADD8E6'}
             />
             <CardSearch
               onPress={() => console.log('Card2 pressed')}
               text="Doces e Bolos"
-              imgPath={require('../../assets/images/drink.png')}
+              imgPath={require('../../assets/images/cake.png')}
               color={'#ADD8E6'}
             />
           </View>

@@ -26,7 +26,7 @@ const BottomIcons: React.FC<{}> = () => {
       </TouchableOpacity>
 
       <TouchableOpacity
-        onPress={() => navigation.navigate('User')}
+        onPress={() => navigation.navigate('Profile')}
         style={styles.iconContainer}>
         <Icon name="user" size={25} color={iconColor} />
       </TouchableOpacity>

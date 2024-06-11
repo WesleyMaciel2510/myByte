@@ -64,22 +64,6 @@ const Home: React.FC<Navigation> = ({navigation}) => {
               />
             </View>
           </View>
-          <View style={{flexDirection: 'row', paddingHorizontal: 10}}>
-            <View style={{flex: 1}}>
-              <CardHome
-                onPress={() => console.log('Card1 pressed')}
-                text="Farmácias"
-                //imgPath={require('../../assets/images/medicalKit.png')}
-              />
-            </View>
-            <View style={{flex: 1}}>
-              <CardHome
-                onPress={() => console.log('Card2 pressed')}
-                text="Bebidas"
-                //imgPath={require('../../assets/images/drink.png')}
-              />
-            </View>
-          </View>
 
           <View style={styles.bannerArea}>
             <FlatList

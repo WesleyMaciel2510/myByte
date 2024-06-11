@@ -4,7 +4,7 @@ import Home from '../screens/Home';
 import PrivacyPolicy from '../screens/PrivacyPolicy';
 import Search from '../screens/Search';
 import Orders from '../screens/Orders';
-import User from '../screens/User';
+import Profile from '../screens/Profile';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,7 +20,7 @@ const AppStack = () => {
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Search" component={Search} />
       <Stack.Screen name="Orders" component={Orders} />
-      <Stack.Screen name="User" component={User} />
+      <Stack.Screen name="Profile" component={Profile} />
 
       <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
     </Stack.Navigator>

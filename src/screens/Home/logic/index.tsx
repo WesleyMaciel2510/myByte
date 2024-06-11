@@ -21,6 +21,6 @@ export const useInit = () => {
 export const flatListImages = [
   require('../../../assets/images/banner/banner1.png'),
   require('../../../assets/images/banner/banner2.png'),
-  //require('../../../assets/images/banner3.png'),
-  //require('../../../assets/images/banner4.png'),
+  require('../../../assets/images/banner/banner3.png'),
+  //require('../../../assets/images/banner/banner4.png'),
 ];
