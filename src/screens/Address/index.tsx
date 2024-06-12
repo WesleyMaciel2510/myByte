@@ -14,12 +14,13 @@ import {Colors} from '../../styles/colors';
 import {globalStyles} from '../../styles/globalStyles';
 import {useSharedGlobalState} from '../../helpers/globalUseState';
 import {useOnHandleLocation} from './logic';
+import CardAddress from '../../components/Cards/cardAddress';
 
 const Address: React.FC<Navigation> = ({navigation}) => {
   const handleChange = (value: string) => {
     console.log('Text input value:', value);
   };
-  const {currentAddress, setCurrentAddress} = useSharedGlobalState();
+  const {currentAddress} = useSharedGlobalState();
   const handleLocation = useOnHandleLocation();
   return (
     <SafeAreaView>
@@ -58,7 +59,7 @@ const Address: React.FC<Navigation> = ({navigation}) => {
               name={'crosshairs'}
               size={35}
               color={Colors.red}
-              style={{flex: 1, marginLeft: 10, alignSelf: 'center'}}
+              style={{flex: 1, marginLeft: 25, alignSelf: 'center'}}
             />
             <View>
               <Text style={styles.text}>Usar Localização do GPS</Text>
@@ -77,7 +78,29 @@ const Address: React.FC<Navigation> = ({navigation}) => {
           </TouchableOpacity>
           <View style={globalStyles.divider} />
 
-          <View style={styles.line}></View>
+          <View style={styles.line}>
+            <CardAddress
+              onPress={() => console.log('')}
+              text={'Rua Darci Bittencourt 1692, São Paulo - SP, 02726-030'}
+              homeAddress={true}
+            />
+            <CardAddress
+              onPress={() => console.log('')}
+              text={
+                'Avenida Lions Club, 162 - Vila Santa Cecília, Volta Redonda - RJ, 27260-2503'
+              }
+            />
+            <CardAddress
+              onPress={() => console.log('')}
+              text={
+                'Avenida Munir Abude, 543 - Praia do Morro, Guarapari - ES, 29216-0454'
+              }
+            />
+            <CardAddress
+              onPress={() => console.log('')}
+              text={'Avenida Afonso Pena 4000, Belo Horizonte - MG, 30130-0091'}
+            />
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -97,8 +120,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   line: {
-    flexDirection: 'row',
+    flex: 1,
+    flexDirection: 'column',
     justifyContent: 'space-around',
+    marginBottom: 15,
   },
   title: {
     textAlign: 'center',

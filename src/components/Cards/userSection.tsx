@@ -32,7 +32,6 @@ const UserSection: React.FC<CardProps> = ({onPress, text, iconName}) => {
 const styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
-    borderRadius: 10,
     paddingVertical: 30,
     marginLeft: 10,
   },
