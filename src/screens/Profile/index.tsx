@@ -43,7 +43,7 @@ const Profile: React.FC<Navigation> = ({navigation}) => {
           />
           <View style={globalStyles.divider} />
           <UserSection
-            onPress={() => console.log('apertou')}
+            onPress={() => navigation.navigate('Address')}
             text={'Meus Endereços'}
             iconName={'map-marker'}
           />

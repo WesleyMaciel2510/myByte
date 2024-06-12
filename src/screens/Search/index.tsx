@@ -41,13 +41,13 @@ const Search: React.FC<Navigation> = ({navigation}) => {
               onPress={() => console.log('Card1 pressed')}
               text="Mercado"
               imgPath={require('../../assets/images/supermarket.png')}
-              color={'#ADD8E6'}
+              color={'#fff'}
             />
             <CardSearch
               onPress={() => console.log('Card2 pressed')}
               text="Farmácia"
               imgPath={require('../../assets/images/medicalKit.png')}
-              color={'#ADD8E6'}
+              color={'#fff'}
             />
           </View>
           <View style={styles.line}>
@@ -55,13 +55,13 @@ const Search: React.FC<Navigation> = ({navigation}) => {
               onPress={() => console.log('Card2 pressed')}
               text="Bebidas"
               imgPath={require('../../assets/images/drink.png')}
-              color={'#ADD8E6'}
+              color={'#fff'}
             />
             <CardSearch
               onPress={() => console.log('Card1 pressed')}
               text="Lanche"
               imgPath={require('../../assets/images/snack.png')}
-              color={'#ADD8E6'}
+              color={'#fff'}
             />
           </View>
           <View style={styles.line}>
@@ -69,13 +69,13 @@ const Search: React.FC<Navigation> = ({navigation}) => {
               onPress={() => console.log('Card1 pressed')}
               text="Restaurante"
               imgPath={require('../../assets/images/restaurant.png')}
-              color={'#ADD8E6'}
+              color={'#fff'}
             />
             <CardSearch
               onPress={() => console.log('Card2 pressed')}
               text="Espetinho"
               imgPath={require('../../assets/images/yakitori.png')}
-              color={'#ADD8E6'}
+              color={'#fff'}
             />
           </View>
           <View style={styles.line}>
@@ -83,13 +83,13 @@ const Search: React.FC<Navigation> = ({navigation}) => {
               onPress={() => console.log('Card1 pressed')}
               text="Sorvete"
               imgPath={require('../../assets/images/icecream.png')}
-              color={'#ADD8E6'}
+              color={'#fff'}
             />
             <CardSearch
               onPress={() => console.log('Card2 pressed')}
               text="Doces e Bolos"
               imgPath={require('../../assets/images/cake.png')}
-              color={'#ADD8E6'}
+              color={'#fff'}
             />
           </View>
         </View>

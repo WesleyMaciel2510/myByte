@@ -20,6 +20,10 @@ const Address: React.FC<Navigation> = ({navigation}) => {
   const handleChange = (value: string) => {
     console.log('Text input value:', value);
   };
+  const goBack = () => {
+    navigation.goBack();
+  };
+  // =====================================================
   const {currentAddress} = useSharedGlobalState();
   const handleLocation = useOnHandleLocation();
   return (
@@ -32,7 +36,9 @@ const Address: React.FC<Navigation> = ({navigation}) => {
               alignItems: 'center',
               paddingBottom: 20,
             }}>
-            <Icon name={'chevron-left'} size={20} color={Colors.red} />
+            <TouchableOpacity onPress={goBack}>
+              <Icon name={'chevron-left'} size={20} color={Colors.red} />
+            </TouchableOpacity>
             <View style={{flex: 1}}>
               <Text style={styles.title}>ENDEREÇO DE ENTREGA</Text>
             </View>
@@ -55,27 +61,24 @@ const Address: React.FC<Navigation> = ({navigation}) => {
           </TouchableOpacity>
           <View style={[globalStyles.divider, {marginTop: 10}]} />
           <TouchableOpacity onPress={handleLocation} style={styles.card}>
-            <Icon
-              name={'crosshairs'}
-              size={35}
-              color={Colors.red}
-              style={{flex: 1, marginLeft: 25, alignSelf: 'center'}}
-            />
-            <View>
-              <Text style={styles.text}>Usar Localização do GPS</Text>
-              <Text style={{fontSize: 16, color: 'gray', maxWidth: 300}}>
-                {currentAddress.length > 0
-                  ? currentAddress
-                  : 'Ativar Localização'}
-              </Text>
+            <View style={{flexDirection: 'row', alignItems: 'center', flex: 1}}>
+              <Icon
+                name={'crosshairs'}
+                size={35}
+                color={Colors.red}
+                style={{marginLeft: 20}}
+              />
+              <View style={styles.addressArea}>
+                <Text style={styles.text}>Usar Localização do GPS</Text>
+                <Text style={{fontSize: 16, color: 'gray', maxWidth: 300}}>
+                  {currentAddress.length > 0
+                    ? currentAddress
+                    : 'Ativar Localização'}
+                </Text>
+              </View>
             </View>
-            <Icon
-              name={'chevron-right'}
-              size={20}
-              color={'gray'}
-              style={{flex: 1, alignSelf: 'center', left: 30}}
-            />
           </TouchableOpacity>
+
           <View style={globalStyles.divider} />
 
           <View style={styles.line}>
@@ -134,6 +137,11 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     color: '#333',
+  },
+  addressArea: {
+    flex: 1,
+    justifyContent: 'center',
+    marginLeft: 20,
   },
   card: {
     flexDirection: 'row',
