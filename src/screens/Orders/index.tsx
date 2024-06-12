@@ -1,22 +1,123 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {Navigation} from '../../context/interface';
+import {globalStyles} from '../../styles/globalStyles';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {Colors} from '../../styles/colors';
+import Button from '../../components/Button/button';
 
 const Orders: React.FC<Navigation> = ({navigation}) => {
+  // =====================================================
+  const goBack = () => {
+    navigation.goBack();
+  };
+  // =====================================================
   return (
-    <SafeAreaView>
+    <SafeAreaView
+      style={[globalStyles.container, {flexDirection: 'column', padding: 20}]}>
       <ScrollView>
-        <View style={styles.container}>
-          <Text> Orders Screen</Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+          }}>
+          <TouchableOpacity onPress={goBack}>
+            <Icon name={'chevron-left'} size={20} color={Colors.red} />
+          </TouchableOpacity>
+          <View style={{flex: 1, marginBottom: 30}}>
+            <Text style={[styles.title, {textAlign: 'center'}]}>
+              MEUS PEDIDOS
+            </Text>
+          </View>
         </View>
+
+        <View style={styles.card}>
+          <View style={{flexDirection: 'row'}}>
+            <View>
+              <Text style={styles.text}>Peça de novo</Text>
+              <Text style={styles.description}>1 Filé de Peixe G 800gr</Text>
+            </View>
+
+            <View
+              style={{
+                flexDirection: 'row',
+                alignSelf: 'flex-start',
+                marginLeft: 20,
+              }}>
+              <Image
+                source={require('../../assets/images/restaurant.png')}
+                style={styles.image}
+                resizeMode="contain"
+              />
+            </View>
+          </View>
+          <Button onPress={() => console.log('')} text={'Adicionar à sacola'} />
+        </View>
+        <View style={{marginTop: 10, marginLeft: 20, flexDirection: 'row'}}>
+          <View>
+            <Text style={[styles.title, {textAlign: 'left'}]}>Histórico</Text>
+            <Text style={styles.description}>Sex. 07 Junho 2024</Text>
+          </View>
+
+          <Icon
+            name={'calendar'}
+            size={50}
+            color={'#403e39'}
+            style={{alignSelf: 'flex-start', position: 'absolute', right: 20}}
+          />
+        </View>
+        <View style={globalStyles.divider} />
       </ScrollView>
     </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
+  title: {
+    fontSize: 23,
+    fontWeight: 'bold',
+    color: '#383838',
+  },
+  card: {
+    backgroundColor: 'white',
+    //flexDirection: 'row',
+    borderRadius: 10,
+    padding: 30,
+    marginLeft: 10,
+    borderWidth: 1,
+    borderColor: 'gray',
+    marginBottom: 15,
+  },
+  icon: {
+    marginHorizontal: 25,
+    alignSelf: 'center',
+  },
+  text: {
+    fontSize: 23,
+    fontWeight: 'bold',
+    color: '#333',
+    maxWidth: 300,
+    flexWrap: 'wrap',
+  },
+  description: {
+    fontSize: 18,
+    color: '#333',
+    maxWidth: 300,
+    flexWrap: 'wrap',
     flex: 1,
+  },
+  image: {
+    width: 150,
+    height: 80,
+    borderRadius: 5,
+    bottom: 20,
   },
 });
 
