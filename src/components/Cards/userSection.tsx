@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   text: {
-    fontSize: 25,
+    fontSize: 21,
     color: '#333',
     flex: 5,
   },

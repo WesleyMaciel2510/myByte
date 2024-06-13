@@ -4,6 +4,7 @@ import {
   Image,
   ImageBackground,
   SafeAreaView,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -20,7 +21,7 @@ import {useSharedGlobalState} from '../../helpers/globalUseState';
 
 const Home: React.FC<Navigation> = ({navigation}) => {
   //const {loading, setLoading} = useSharedState();
-  const {currentAddress} = useSharedGlobalState();
+  const {currentAddress, setCategorySelected} = useSharedGlobalState();
   //useInit();
 
   // ============================================================================
@@ -29,89 +30,97 @@ const Home: React.FC<Navigation> = ({navigation}) => {
   // ============================================================================
   return (
     <SafeAreaView style={globalStyles.container}>
-      <View style={styles.container}>
-        <ImageBackground
-          source={require('../../assets/images/food.jpg')}
-          style={styles.headlineArea}
-          resizeMode="cover">
-          <Image
-            source={require('../../assets/images/title.png')}
-            style={[styles.image, styles.title]}
-          />
-          <Image
-            source={require('../../assets/images/potato.png')}
-            style={[styles.image, styles.potato]}
-          />
-          <View style={styles.buttonContainer}>
-            <Button
-              onPress={() => navigation.navigate('PrivacyPolicy')}
-              text={'Conferir Ofertas'}
-              width={'33%'}
+      <ScrollView>
+        <View style={styles.container}>
+          <ImageBackground
+            source={require('../../assets/images/food.jpg')}
+            style={styles.headlineArea}
+            resizeMode="cover">
+            <Image
+              source={require('../../assets/images/title.png')}
+              style={[styles.image, styles.title]}
             />
-          </View>
-        </ImageBackground>
-        <View style={styles.roundedCornerOverlay} />
-        <View style={styles.contentArea}>
-          <TouchableOpacity onPress={() => navigation.navigate('Address')}>
-            <Text style={styles.titleText}>
-              {currentAddress.length > 0
-                ? streetAndNumber
-                : 'Ativar Localização'}
-              <Icon name="chevron-down" size={20} color={'#F72020'} />
-            </Text>
-          </TouchableOpacity>
-
-          <View style={{flexDirection: 'row', paddingHorizontal: 10}}>
-            <View style={{flex: 1}}>
-              <CardHome
-                onPress={() => console.log('Card1 pressed')}
-                imgPath={require('../../assets/images/restaurant.png')}
-                text="Restaurante"
+            <Image
+              source={require('../../assets/images/potato.png')}
+              style={[styles.image, styles.potato]}
+            />
+            <View style={styles.buttonContainer}>
+              <Button
+                onPress={() => navigation.navigate('PrivacyPolicy')}
+                text={'Conferir Ofertas'}
+                width={'33%'}
               />
             </View>
-            <View style={{flex: 1}}>
-              <CardHome
-                onPress={() => console.log('Card2 pressed')}
-                imgPath={require('../../assets/images/snack.png')}
-                text="Lanche"
-              />
-            </View>
-          </View>
-          <View
-            style={{
-              padding: 10,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-            <TouchableOpacity
-              onPress={() => console.log('')}
-              style={[
-                styles.button,
-                {backgroundColor: Colors.red, flexDirection: 'row'},
-              ]}>
-              <Icon
-                name="plus"
-                size={25}
-                color={'#fff'}
-                style={{marginHorizontal: 10}}
-              />
-              <Text style={{color: '#fff', fontSize: 20}}>Opções</Text>
+          </ImageBackground>
+          <View style={styles.roundedCornerOverlay} />
+          <View style={styles.contentArea}>
+            <TouchableOpacity onPress={() => navigation.navigate('Address')}>
+              <Text style={styles.titleText}>
+                {currentAddress.length > 0
+                  ? streetAndNumber
+                  : 'Ativar Localização'}
+                <Icon name="chevron-down" size={20} color={'#F72020'} />
+              </Text>
             </TouchableOpacity>
-          </View>
 
-          <View style={styles.bannerArea}>
-            <FlatList
-              horizontal
-              data={flatListImages}
-              renderItem={({item}) => (
-                <Image source={item} style={styles.banner} />
-              )}
-              keyExtractor={(item, index) => index.toString()}
-              showsHorizontalScrollIndicator={false}
-            />
+            <View style={{flexDirection: 'row', paddingHorizontal: 10}}>
+              <View style={{flex: 1}}>
+                <CardHome
+                  onPress={() => {
+                    setCategorySelected('Restaurante');
+                    navigation.navigate('Category');
+                  }}
+                  imgPath={require('../../assets/images/restaurant.png')}
+                  text="Restaurante"
+                />
+              </View>
+              <View style={{flex: 1}}>
+                <CardHome
+                  onPress={() => {
+                    setCategorySelected('Lanche');
+                    navigation.navigate('Category');
+                  }}
+                  imgPath={require('../../assets/images/snack.png')}
+                  text="Lanche"
+                />
+              </View>
+            </View>
+            <View
+              style={{
+                padding: 10,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Search')}
+                style={[
+                  styles.button,
+                  {backgroundColor: Colors.red, flexDirection: 'row'},
+                ]}>
+                <Icon
+                  name="plus"
+                  size={25}
+                  color={'#fff'}
+                  style={{marginHorizontal: 10}}
+                />
+                <Text style={{color: '#fff', fontSize: 20}}>Opções</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.bannerArea}>
+              <FlatList
+                horizontal
+                data={flatListImages}
+                renderItem={({item}) => (
+                  <Image source={item} style={styles.banner} />
+                )}
+                keyExtractor={(item, index) => index.toString()}
+                showsHorizontalScrollIndicator={false}
+              />
+            </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -125,7 +134,7 @@ const styles = StyleSheet.create({
   headlineArea: {
     flex: 1,
     width: '100%',
-    height: '100%',
+    height: 300,
   },
   contentArea: {
     flex: 2,
@@ -145,7 +154,7 @@ const styles = StyleSheet.create({
     width: 70,
     height: 100,
     right: 50,
-    top: 170,
+    top: 150,
   },
   title: {
     width: 200,
@@ -157,8 +166,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 100,
-    marginLeft: 20,
+    marginVertical: 20,
+    padding: 10,
   },
   banner: {
     width: 350,

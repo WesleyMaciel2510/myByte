@@ -11,10 +11,16 @@ import {
 import {Navigation} from '../../context/interface';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import CardSearch from '../../components/Cards/cardSearch';
+import {useSharedGlobalState} from '../../helpers/globalUseState';
 
 const Search: React.FC<Navigation> = ({navigation}) => {
+  const {setCategorySelected} = useSharedGlobalState();
   const handleChange = (value: string) => {
     console.log('Text input value:', value);
+  };
+  const handleNavigation = (label: string) => {
+    setCategorySelected(label);
+    navigation.navigate('Category');
   };
   return (
     <SafeAreaView>
@@ -26,7 +32,7 @@ const Search: React.FC<Navigation> = ({navigation}) => {
             <View style={{alignSelf: 'center'}}>
               <Icon name="search" size={25} color={'#F72020'} />
             </View>
-            <View style={{padding: 10, marginLeft: 10}}>
+            <View style={{marginLeft: 10}}>
               <TextInput
                 placeholder="Buscar item no App"
                 placeholderTextColor="#888"
@@ -38,13 +44,13 @@ const Search: React.FC<Navigation> = ({navigation}) => {
           <Text style={[styles.title, {marginTop: 30}]}> Categorias </Text>
           <View style={styles.line}>
             <CardSearch
-              onPress={() => console.log('Card1 pressed')}
+              onPress={() => handleNavigation('Mercado')}
               text="Mercado"
               imgPath={require('../../assets/images/supermarket.png')}
               color={'#fff'}
             />
             <CardSearch
-              onPress={() => console.log('Card2 pressed')}
+              onPress={() => handleNavigation('Farmácia')}
               text="Farmácia"
               imgPath={require('../../assets/images/medicalKit.png')}
               color={'#fff'}
@@ -52,13 +58,13 @@ const Search: React.FC<Navigation> = ({navigation}) => {
           </View>
           <View style={styles.line}>
             <CardSearch
-              onPress={() => console.log('Card2 pressed')}
+              onPress={() => handleNavigation('Bebidas')}
               text="Bebidas"
               imgPath={require('../../assets/images/drink.png')}
               color={'#fff'}
             />
             <CardSearch
-              onPress={() => console.log('Card1 pressed')}
+              onPress={() => handleNavigation('Lanche')}
               text="Lanche"
               imgPath={require('../../assets/images/snack.png')}
               color={'#fff'}
@@ -66,13 +72,13 @@ const Search: React.FC<Navigation> = ({navigation}) => {
           </View>
           <View style={styles.line}>
             <CardSearch
-              onPress={() => console.log('Card1 pressed')}
+              onPress={() => handleNavigation('Restaurante')}
               text="Restaurante"
               imgPath={require('../../assets/images/restaurant.png')}
               color={'#fff'}
             />
             <CardSearch
-              onPress={() => console.log('Card2 pressed')}
+              onPress={() => handleNavigation('Espetinho')}
               text="Espetinho"
               imgPath={require('../../assets/images/yakitori.png')}
               color={'#fff'}
@@ -80,13 +86,13 @@ const Search: React.FC<Navigation> = ({navigation}) => {
           </View>
           <View style={styles.line}>
             <CardSearch
-              onPress={() => console.log('Card1 pressed')}
+              onPress={() => handleNavigation('Sorvete')}
               text="Sorvete"
               imgPath={require('../../assets/images/icecream.png')}
               color={'#fff'}
             />
             <CardSearch
-              onPress={() => console.log('Card2 pressed')}
+              onPress={() => handleNavigation('Doces e Bolos')}
               text="Doces e Bolos"
               imgPath={require('../../assets/images/cake.png')}
               color={'#fff'}

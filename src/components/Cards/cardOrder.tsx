@@ -20,7 +20,7 @@ interface CardProps {
 
 const CardOrder: React.FC<CardProps> = ({onPress, imgPath, text, title}) => {
   return (
-    <View style={styles.card}>
+    <TouchableOpacity style={styles.card} onPress={onPress}>
       <View style={{flexDirection: 'row'}}>
         <View>
           <Text style={[styles.text, {maxWidth: 200, paddingRight: 15}]}>
@@ -52,7 +52,7 @@ const CardOrder: React.FC<CardProps> = ({onPress, imgPath, text, title}) => {
           </Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

@@ -28,15 +28,14 @@ const Orders: React.FC<Navigation> = ({navigation}) => {
         <View
           style={{
             flexDirection: 'row',
-            alignItems: 'flex-start',
+            alignItems: 'center',
+            paddingBottom: 20,
           }}>
           <TouchableOpacity onPress={goBack}>
             <Icon name={'chevron-left'} size={20} color={Colors.red} />
           </TouchableOpacity>
-          <View style={{flex: 1, marginBottom: 30}}>
-            <Text style={[styles.title, {textAlign: 'center'}]}>
-              MEUS PEDIDOS
-            </Text>
+          <View style={{flex: 1, alignItems: 'center'}}>
+            <Text style={styles.title}> MEUS PEDIDOS</Text>
           </View>
         </View>
 
@@ -62,7 +61,7 @@ const Orders: React.FC<Navigation> = ({navigation}) => {
           </View>
           <Button onPress={() => console.log('')} text={'Adicionar à sacola'} />
         </View>
-        <View style={{marginTop: 10, marginLeft: 20, flexDirection: 'row'}}>
+        <View style={{marginTop: 20, marginLeft: 20, flexDirection: 'row'}}>
           <View>
             <Text style={[styles.title, {textAlign: 'left'}]}>Histórico</Text>
             <Text style={styles.description}>Junho 2024</Text>
@@ -113,7 +112,6 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     borderWidth: 1,
     borderColor: 'gray',
-    marginBottom: 15,
   },
   icon: {
     marginHorizontal: 25,
@@ -140,7 +138,7 @@ const styles = StyleSheet.create({
     bottom: 20,
   },
   orderArea: {
-    marginTop: 20,
+    marginTop: 30,
     flexDirection: 'column',
   },
 });

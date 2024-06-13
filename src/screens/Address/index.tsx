@@ -50,7 +50,7 @@ const Address: React.FC<Navigation> = ({navigation}) => {
             <View style={{alignSelf: 'center'}}>
               <Icon name="search" size={25} color={'#F72020'} />
             </View>
-            <View style={{padding: 10, marginLeft: 10}}>
+            <View style={{marginLeft: 10}}>
               <TextInput
                 placeholder="Endereço e número"
                 placeholderTextColor="#888"
@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     flex: 1,
     padding: 20,
+    paddingHorizontal: 30,
   },
   searchArea: {
     flexDirection: 'row',
