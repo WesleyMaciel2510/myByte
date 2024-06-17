@@ -1,15 +1,16 @@
 import {useEffect, useState} from 'react';
 import {useBetween} from 'use-between';
-import {useSharedGlobalState} from '../../../helpers/globalUseState';
-import {StackNavigationProp} from '@react-navigation/stack';
-
-type Navigation = StackNavigationProp<RootStackParamList>;
 
 export const useStateVariables = () => {
   const [loading, setLoading] = useState(false);
+  const [selectedOption, setSelectedOption] = useState<string | null>(
+    'Option Restaurantes',
+  );
   return {
     loading,
     setLoading,
+    selectedOption,
+    setSelectedOption,
   };
 };
 
@@ -21,25 +22,6 @@ export const useInit = () => {
     console.log('useInit working!!');
   }, []);
 };
-
-export const useCustomNavigation = ({navigation}: {navigation: Navigation}) => {
-  const {setTypeOfProduct, setStoreSelected} = useSharedGlobalState();
-
-  const navigateToScreen = (itemPressed: any, screenName: string) => {
-    console.log('chamou useNavigation');
-    console.log('screenName = ', screenName);
-
-    if (screenName === 'StoresList') {
-      console.log('foi para tela de LOJAS');
-      navigation.navigate(screenName);
-    } else {
-      console.log('foi para tela de ITEMS');
-    }
-  };
-
-  return {navigateToScreen};
-};
-
 export const flatListImages = [
   require('../../../assets/images/banner/banner1.png'),
   require('../../../assets/images/banner/banner2.png'),

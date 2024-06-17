@@ -6,6 +6,8 @@ export const useStateVariables = () => {
   const [latlong, setLatlong] = useState(['']);
   const [currentAddress, setCurrentAddress] = useState('');
   const [categorySelected, setCategorySelected] = useState('');
+  const [typeOfProduct, setTypeOfProduct] = useState('');
+  const [storeSelected, setStoreSelected] = useState('');
   return {
     internetOn,
     setInternetOn,
@@ -15,6 +17,10 @@ export const useStateVariables = () => {
     setCurrentAddress,
     categorySelected,
     setCategorySelected,
+    typeOfProduct,
+    setTypeOfProduct,
+    storeSelected,
+    setStoreSelected,
   };
 };
 

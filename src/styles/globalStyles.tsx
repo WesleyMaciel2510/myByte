@@ -17,6 +17,6 @@ export const globalStyles = StyleSheet.create({
   divider: {
     height: 2,
     backgroundColor: '#d3d3d3',
-    marginHorizontal: 15,
+    marginHorizontal: 10,
   },
 });

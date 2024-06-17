@@ -8,8 +8,6 @@ import {
   ImageSourcePropType,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import RatingStars from '../Rating/RatingStars';
-import {Colors} from '../../styles/colors';
 
 interface CardProps {
   onPress: () => void;
@@ -32,7 +30,7 @@ const CardStore: React.FC<CardProps> = ({onPress, imgPath, text, title}) => {
         <View style={{flex: 1}}>
           <Image source={imgPath} style={styles.image} resizeMode="center" />
         </View>
-        <View style={{flex: 4, flexDirection: 'column', paddingLeft: 10}}>
+        <View style={{flex: 4, flexDirection: 'column', paddingLeft: 20}}>
           <Text style={[styles.text, {paddingRight: 15}]}>{title}</Text>
           <View
             style={{
@@ -58,7 +56,7 @@ const CardStore: React.FC<CardProps> = ({onPress, imgPath, text, title}) => {
             </Text>
           </View>
         </View>
-        <TouchableOpacity onPress={toggleHeart}>
+        <TouchableOpacity onPress={toggleHeart} style={{marginBottom: 30}}>
           <Icon name={isHeart ? 'heart' : 'heart-o'} size={30} color="red" />
         </TouchableOpacity>
       </View>
@@ -68,12 +66,14 @@ const CardStore: React.FC<CardProps> = ({onPress, imgPath, text, title}) => {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: 'bold',
     color: '#333',
+    maxHeight: 100,
+    flexWrap: 'wrap',
   },
   description: {
-    fontSize: 20,
+    fontSize: 18,
     color: '#333',
     maxWidth: 200,
     flexWrap: 'wrap',

@@ -14,14 +14,16 @@ import {Navigation} from '../../context/interface';
 import {globalStyles} from '../../styles/globalStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Colors} from '../../styles/colors';
-import {categoryList} from './CategoryList';
+import {categoryList} from '../../context/CategoryList';
 import {useSharedGlobalState} from '../../helpers/globalUseState';
-import CategoryItem from './CategoryItem';
-import {flatListImages} from './logic';
+import CategoryItem from '../../components/Cards/CategoryItem';
+import {flatListImages, useCustomNavigation} from './logic';
 import CardStore from '../../components/Cards/cardStore';
+import {useNavigation} from '@react-navigation/native';
 
 const Category: React.FC<Navigation> = ({navigation}) => {
   const {currentAddress, categorySelected} = useSharedGlobalState();
+  const {navigateToScreen} = useCustomNavigation({navigation});
   // ============================================================================
   const match = currentAddress.match(/(.*?\d+)/); //regex to show only
   const streetAndNumber = match ? match[0] : ''; //street and number
@@ -115,25 +117,33 @@ const Category: React.FC<Navigation> = ({navigation}) => {
             Últimas Lojas
           </Text>
           <CardStore
-            onPress={() => console.log('')}
+            onPress={() =>
+              navigateToScreen('MCDonalds - Unidade Centro', 'StoresList')
+            }
             title={'MCDonalds - Unidade Centro'}
             text={'Cafeteria'}
             imgPath={require('../../assets/images/mddonalds.jpg')}
           />
           <CardStore
-            onPress={() => console.log('')}
+            onPress={() =>
+              navigateToScreen('MCDonalds - Unidade Centro', 'StoresList')
+            }
             title={'MCDonalds - Unidade Centro'}
             text={'Cafeteria'}
             imgPath={require('../../assets/images/mddonalds.jpg')}
           />
           <CardStore
-            onPress={() => console.log('')}
+            onPress={() =>
+              navigateToScreen('MCDonalds - Unidade Centro', 'StoresList')
+            }
             title={'MCDonalds - Unidade Centro'}
             text={'Cafeteria'}
             imgPath={require('../../assets/images/mddonalds.jpg')}
           />
           <CardStore
-            onPress={() => console.log('')}
+            onPress={() =>
+              navigateToScreen('MCDonalds - Unidade Centro', 'StoresList')
+            }
             title={'MCDonalds - Unidade Centro'}
             text={'Cafeteria'}
             imgPath={require('../../assets/images/mddonalds.jpg')}

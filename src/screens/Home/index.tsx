@@ -18,6 +18,7 @@ import CardHome from '../../components/Cards/cardHome';
 import {globalStyles} from '../../styles/globalStyles';
 import {Colors} from '../../styles/colors';
 import {useSharedGlobalState} from '../../helpers/globalUseState';
+import CardStore from '../../components/Cards/cardStore';
 
 const Home: React.FC<Navigation> = ({navigation}) => {
   //const {loading, setLoading} = useSharedState();
