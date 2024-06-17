@@ -6,8 +6,14 @@ export const useStateVariables = () => {
   const [latlong, setLatlong] = useState(['']);
   const [currentAddress, setCurrentAddress] = useState('');
   const [categorySelected, setCategorySelected] = useState('');
-  const [typeOfProduct, setTypeOfProduct] = useState('');
   const [storeSelected, setStoreSelected] = useState('');
+  const [itemSelected, setItemSelected] = useState('');
+  const [typeOfProduct, setTypeOfProduct] = useState('');
+  const [currentOrder, setCurrentOrder] = useState({
+    product: '',
+    amount: 0,
+    price: 0.0,
+  });
   return {
     internetOn,
     setInternetOn,
@@ -17,10 +23,14 @@ export const useStateVariables = () => {
     setCurrentAddress,
     categorySelected,
     setCategorySelected,
-    typeOfProduct,
-    setTypeOfProduct,
     storeSelected,
     setStoreSelected,
+    itemSelected,
+    setItemSelected,
+    typeOfProduct,
+    setTypeOfProduct,
+    currentOrder,
+    setCurrentOrder,
   };
 };
 

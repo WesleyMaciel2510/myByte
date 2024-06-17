@@ -19,7 +19,7 @@ import StoreFoods from '../../components/Cards/storeFoods';
 import {FoodList} from '../../context/FoodList';
 
 const Store: React.FC<Navigation> = ({navigation}) => {
-  const {currentAddress, storeSelected, setStoreSelected} =
+  const {currentAddress, storeSelected, setStoreSelected, setItemSelected} =
     useSharedGlobalState();
   const {selectedOption, setSelectedOption} = useSharedState();
   // ============================================================================
@@ -32,7 +32,11 @@ const Store: React.FC<Navigation> = ({navigation}) => {
     <StoreFoods
       text={item.name}
       cost={item.cost}
-      onPress={() => console.log('Pressed:', item.name)}
+      onPress={() => {
+        console.log('Pressed:', item.name);
+        setItemSelected(item.name);
+        navigation.navigate('ItemSelected');
+      }}
       imgPath={require('../../assets/images/restaurant.png')}
     />
   );

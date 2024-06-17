@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({
       style={[
         styles.button,
         {
-          backgroundColor: color.length > 0 ? color : '#F72020',
+          backgroundColor: color.length > 0 ? color : '#EA0033',
           width: width ? width : '100%',
         },
       ]}>
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 18,
   },
 });
 

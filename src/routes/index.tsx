@@ -9,6 +9,7 @@ import Address from '../screens/Address';
 import Category from '../screens/Category';
 import StoresList from '../screens/StoresList';
 import Store from '../screens/Store';
+import ItemSelected from '../screens/ItemSelected';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,7 @@ const AppStack = () => {
       <Stack.Screen name="Category" component={Category} />
       <Stack.Screen name="StoresList" component={StoresList} />
       <Stack.Screen name="Store" component={Store} />
+      <Stack.Screen name="ItemSelected" component={ItemSelected} />
 
       <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
     </Stack.Navigator>

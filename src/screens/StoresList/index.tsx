@@ -29,10 +29,6 @@ const StoresList: React.FC<Navigation> = ({navigation}) => {
     navigation.goBack();
   };
   const handlePress = (text: string) => {
-    console.log('chamou handlePress');
-    console.log('text = ', text);
-    console.log('selectedOption = ', selectedOption);
-
     setSelectedOption(text === selectedOption ? null : text);
   };
   // ============================================================================
@@ -49,14 +45,7 @@ const StoresList: React.FC<Navigation> = ({navigation}) => {
             <Icon name={'chevron-left'} size={20} color={Colors.red} />
           </TouchableOpacity>
           <View style={{flex: 1, alignItems: 'center'}}>
-            <TouchableOpacity onPress={() => navigation.navigate('Address')}>
-              <Text style={styles.titleText}>
-                {currentAddress.length > 0
-                  ? streetAndNumber
-                  : 'Ativar Localização'}
-                <Icon name="chevron-down" size={20} color={'#F72020'} />
-              </Text>
-            </TouchableOpacity>
+            <Text style={styles.titleText}>RESTAURANTES DISPONÍVEIS</Text>
           </View>
         </View>
 

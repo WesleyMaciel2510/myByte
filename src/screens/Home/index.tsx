@@ -49,7 +49,8 @@ const Home: React.FC<Navigation> = ({navigation}) => {
               <Button
                 onPress={() => navigation.navigate('PrivacyPolicy')}
                 text={'Conferir Ofertas'}
-                width={'33%'}
+                width={'40%'}
+                color={'#EA0033'}
               />
             </View>
           </ImageBackground>
@@ -60,7 +61,7 @@ const Home: React.FC<Navigation> = ({navigation}) => {
                 {currentAddress.length > 0
                   ? streetAndNumber
                   : 'Ativar Localização'}
-                <Icon name="chevron-down" size={20} color={'#F72020'} />
+                <Icon name="chevron-down" size={20} color={'#EA0033'} />
               </Text>
             </TouchableOpacity>
 

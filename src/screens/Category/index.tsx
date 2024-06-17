@@ -22,7 +22,8 @@ import CardStore from '../../components/Cards/cardStore';
 import {useNavigation} from '@react-navigation/native';
 
 const Category: React.FC<Navigation> = ({navigation}) => {
-  const {currentAddress, categorySelected} = useSharedGlobalState();
+  const {currentAddress, categorySelected, itemSelected, setItemSelected} =
+    useSharedGlobalState();
   const {navigateToScreen} = useCustomNavigation({navigation});
   // ============================================================================
   const match = currentAddress.match(/(.*?\d+)/); //regex to show only
@@ -34,7 +35,10 @@ const Category: React.FC<Navigation> = ({navigation}) => {
   const renderItem = ({item}) => (
     <CategoryItem
       text={item}
-      onPress={() => console.log()}
+      onPress={() => {
+        setItemSelected(item);
+        navigation.navigate('StoresList');
+      }}
       imgPath={require('../../assets/images/restaurant.png')}
     />
   );
@@ -121,7 +125,7 @@ const Category: React.FC<Navigation> = ({navigation}) => {
               navigateToScreen('MCDonalds - Unidade Centro', 'StoresList')
             }
             title={'MCDonalds - Unidade Centro'}
-            text={'Cafeteria'}
+            text={'Lanche'}
             imgPath={require('../../assets/images/mddonalds.jpg')}
           />
           <CardStore
@@ -129,7 +133,7 @@ const Category: React.FC<Navigation> = ({navigation}) => {
               navigateToScreen('MCDonalds - Unidade Centro', 'StoresList')
             }
             title={'MCDonalds - Unidade Centro'}
-            text={'Cafeteria'}
+            text={'Lanche'}
             imgPath={require('../../assets/images/mddonalds.jpg')}
           />
           <CardStore
@@ -137,7 +141,7 @@ const Category: React.FC<Navigation> = ({navigation}) => {
               navigateToScreen('MCDonalds - Unidade Centro', 'StoresList')
             }
             title={'MCDonalds - Unidade Centro'}
-            text={'Cafeteria'}
+            text={'Lanche'}
             imgPath={require('../../assets/images/mddonalds.jpg')}
           />
           <CardStore
@@ -145,7 +149,7 @@ const Category: React.FC<Navigation> = ({navigation}) => {
               navigateToScreen('MCDonalds - Unidade Centro', 'StoresList')
             }
             title={'MCDonalds - Unidade Centro'}
-            text={'Cafeteria'}
+            text={'Lanche'}
             imgPath={require('../../assets/images/mddonalds.jpg')}
           />
         </View>
