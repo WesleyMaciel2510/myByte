@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {useBetween} from 'use-between';
+import {Order} from '../context/interface';
 
 export const useStateVariables = () => {
   const [internetOn, setInternetOn] = useState(true);
@@ -7,13 +8,10 @@ export const useStateVariables = () => {
   const [currentAddress, setCurrentAddress] = useState('');
   const [categorySelected, setCategorySelected] = useState('');
   const [storeSelected, setStoreSelected] = useState('');
-  const [itemSelected, setItemSelected] = useState('');
+  const [itemSelected, setItemSelected] = useState(['']);
   const [typeOfProduct, setTypeOfProduct] = useState('');
-  const [currentOrder, setCurrentOrder] = useState({
-    product: '',
-    amount: 0,
-    price: 0.0,
-  });
+  const [currentOrder, setCurrentOrder] = useState<Order[]>([]);
+  const [totalPrice, setTotalPrice] = useState(0);
   return {
     internetOn,
     setInternetOn,
@@ -31,6 +29,8 @@ export const useStateVariables = () => {
     setTypeOfProduct,
     currentOrder,
     setCurrentOrder,
+    totalPrice,
+    setTotalPrice,
   };
 };
 

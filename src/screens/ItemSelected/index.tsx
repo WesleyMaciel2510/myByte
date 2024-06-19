@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   FlatList,
   Image,
@@ -16,17 +16,43 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {Colors} from '../../styles/colors';
 import {useSharedGlobalState} from '../../helpers/globalUseState';
 import {useSharedState} from './logic';
-import {FoodList} from '../../context/FoodList';
 import Button from '../../components/Button/button';
+import {Order} from '../../context/interface';
 
 const ItemSelected: React.FC<Navigation> = ({navigation}) => {
-  const {currentAddress, itemSelected, storeSelected, currentOrder} =
+  const {itemSelected, storeSelected, currentOrder, setCurrentOrder} =
     useSharedGlobalState();
-  const {selectedOption, setSelectedOption} = useSharedState();
+  const {
+    productAmount,
+    setProductAmount,
+    productDescription,
+    setProductDescription,
+  } = useSharedState();
+
   // ============================================================================
   const handleChange = (value: string) => {
     console.log('Text input value:', value);
+    setProductDescription(value);
   };
+  const handleAddProduct = () => {
+    console.log('chamou handleAddProduct');
+
+    const newOrder: Order = {
+      id: currentOrder.length + 1,
+      productName: itemSelected[0],
+      cost: itemSelected[1],
+      store: storeSelected,
+      description: productDescription,
+    };
+    console.log('newOrder = ', newOrder);
+
+    if (currentOrder.length === 0) {
+      setCurrentOrder([newOrder]);
+    } else {
+      setCurrentOrder(prevState => [...prevState, newOrder]);
+    }
+  };
+
   // ============================================================================
   const goBack = () => {
     navigation.goBack();
@@ -54,7 +80,7 @@ const ItemSelected: React.FC<Navigation> = ({navigation}) => {
 
         <View style={styles.contentArea}>
           <Text style={[styles.title, {textAlign: 'left'}]}>
-            {itemSelected}
+            {itemSelected[0]}
           </Text>
           <View style={styles.divider} />
           <Text style={styles.description}>
@@ -72,8 +98,8 @@ const ItemSelected: React.FC<Navigation> = ({navigation}) => {
             <Text style={styles.description}> Entrega: </Text>
             <Text style={styles.description}> 30-40 min - </Text>
             <Text style={[styles.description, {fontSize: 20, color: 'green'}]}>
-              <Icon name="usd" size={25} color={'green'} />
-              <Icon name="usd" size={25} color={'green'} /> 8,99
+              <Icon name="usd" size={18} color={'green'} />
+              <Icon name="usd" size={18} color={'green'} /> 8,99
             </Text>
           </View>
           <View style={styles.divider} />
@@ -138,17 +164,19 @@ const ItemSelected: React.FC<Navigation> = ({navigation}) => {
           </View>
           <View style={styles.bottomArea}>
             <View style={styles.iconContainer}>
-              <TouchableOpacity onPress={() => console.log('minus')}>
+              <TouchableOpacity
+                onPress={() => setProductAmount(prevAmount => prevAmount - 1)}>
                 <Icon name="minus" size={25} color={'#F72020'} />
               </TouchableOpacity>
-              <Text style={styles.amountText}>{currentOrder.amount}</Text>
-              <TouchableOpacity onPress={() => console.log('plus')}>
+              <Text style={styles.amountText}>{productAmount}</Text>
+              <TouchableOpacity
+                onPress={() => setProductAmount(prevAmount => prevAmount + 1)}>
                 <Icon name="plus" size={25} color={'#F72020'} />
               </TouchableOpacity>
             </View>
             <View style={styles.buttonContainer}>
               <Button
-                onPress={() => console.log('Add to Cart')}
+                onPress={() => handleAddProduct()}
                 color={'#EA0033'}
                 text={'Adicionar à sacola'}
               />
@@ -189,7 +217,6 @@ const styles = StyleSheet.create({
     color: '#333',
     marginVertical: 10,
     textAlign: 'left',
-    //marginLeft: 10,
   },
   image: {
     position: 'relative',
@@ -206,8 +233,9 @@ const styles = StyleSheet.create({
     right: 12,
   },
   input: {
-    fontSize: 20,
+    fontSize: 18,
     marginVertical: 20,
+    paddingHorizontal: 20,
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#d3d3d3',
@@ -247,7 +275,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flex: 2,
-    marginLeft: 10,
+    marginLeft: 30,
   },
 });
 

@@ -28,9 +28,10 @@ export const useCustomNavigation = ({navigation}: {navigation: Navigation}) => {
   const navigateToScreen = (itemPressed: any, screenName: string) => {
     console.log('chamou useNavigation');
     console.log('screenName = ', screenName);
+    setStoreSelected(itemPressed);
 
-    if (screenName === 'StoresList') {
-      console.log('foi para tela de LOJAS');
+    if (screenName === 'Store') {
+      console.log('foi para tela da LOJA');
       navigation.navigate(screenName);
     } else {
       console.log('foi para tela de ITEMS');

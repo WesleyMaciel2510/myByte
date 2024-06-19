@@ -37,6 +37,7 @@ const Orders: React.FC<Navigation> = ({navigation}) => {
           <View style={{flex: 1, alignItems: 'center'}}>
             <Text style={styles.title}> MEUS PEDIDOS</Text>
           </View>
+          <Icon name={'shopping-bag'} size={35} color={Colors.red} />
         </View>
 
         <View style={styles.card}>

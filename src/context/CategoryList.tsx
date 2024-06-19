@@ -17,11 +17,11 @@ export const categoryList = [
   },
   {
     key: 'Restaurante',
-    data: ['Marmita', 'Brasileira', 'Árabe', 'Carne', 'Massas'],
+    data: ['Marmita', 'Brasileira', 'Frutos do Mar', 'Carne', 'Massas'],
   },
   {
     key: 'Espetinho',
-    data: ['Carne', 'Frango', 'Cordeiro', 'Kafta', 'Queijo Coalho'],
+    data: ['Bovino', 'Linguiça', 'Suíno', 'Kafta', 'Queijo'],
   },
   {
     key: 'Sorvete',

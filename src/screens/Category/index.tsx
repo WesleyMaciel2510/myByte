@@ -122,7 +122,7 @@ const Category: React.FC<Navigation> = ({navigation}) => {
           </Text>
           <CardStore
             onPress={() =>
-              navigateToScreen('MCDonalds - Unidade Centro', 'StoresList')
+              navigateToScreen('MCDonalds - Unidade Centro', 'Store')
             }
             title={'MCDonalds - Unidade Centro'}
             text={'Lanche'}
@@ -130,7 +130,7 @@ const Category: React.FC<Navigation> = ({navigation}) => {
           />
           <CardStore
             onPress={() =>
-              navigateToScreen('MCDonalds - Unidade Centro', 'StoresList')
+              navigateToScreen('MCDonalds - Unidade Centro', 'Store')
             }
             title={'MCDonalds - Unidade Centro'}
             text={'Lanche'}
@@ -138,7 +138,7 @@ const Category: React.FC<Navigation> = ({navigation}) => {
           />
           <CardStore
             onPress={() =>
-              navigateToScreen('MCDonalds - Unidade Centro', 'StoresList')
+              navigateToScreen('MCDonalds - Unidade Centro', 'Store')
             }
             title={'MCDonalds - Unidade Centro'}
             text={'Lanche'}
@@ -146,7 +146,7 @@ const Category: React.FC<Navigation> = ({navigation}) => {
           />
           <CardStore
             onPress={() =>
-              navigateToScreen('MCDonalds - Unidade Centro', 'StoresList')
+              navigateToScreen('MCDonalds - Unidade Centro', 'Store')
             }
             title={'MCDonalds - Unidade Centro'}
             text={'Lanche'}

@@ -21,7 +21,7 @@ import {FoodList} from '../../context/FoodList';
 const Store: React.FC<Navigation> = ({navigation}) => {
   const {currentAddress, storeSelected, setStoreSelected, setItemSelected} =
     useSharedGlobalState();
-  const {selectedOption, setSelectedOption} = useSharedState();
+  const {selectedOption, setSelectedOption, setCurrentOrder} = useSharedState();
   // ============================================================================
   const match = currentAddress.match(/(.*?\d+)/); //regex to show only
   const streetAndNumber = match ? match[0] : ''; //street and number
@@ -34,7 +34,7 @@ const Store: React.FC<Navigation> = ({navigation}) => {
       cost={item.cost}
       onPress={() => {
         console.log('Pressed:', item.name);
-        setItemSelected(item.name);
+        setItemSelected([item.name, item.cost]);
         navigation.navigate('ItemSelected');
       }}
       imgPath={require('../../assets/images/restaurant.png')}

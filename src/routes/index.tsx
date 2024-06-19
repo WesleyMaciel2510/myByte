@@ -10,6 +10,7 @@ import Category from '../screens/Category';
 import StoresList from '../screens/StoresList';
 import Store from '../screens/Store';
 import ItemSelected from '../screens/ItemSelected';
+import BagSection from '../screens/BagSection';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +32,7 @@ const AppStack = () => {
       <Stack.Screen name="StoresList" component={StoresList} />
       <Stack.Screen name="Store" component={Store} />
       <Stack.Screen name="ItemSelected" component={ItemSelected} />
+      <Stack.Screen name="BagSection" component={BagSection} />
 
       <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
     </Stack.Navigator>
