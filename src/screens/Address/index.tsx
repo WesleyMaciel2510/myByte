@@ -72,7 +72,7 @@ const Address: React.FC<Navigation> = ({navigation}) => {
                 <Text style={styles.text}>Usar Localização do GPS</Text>
                 <Text style={{fontSize: 16, color: 'gray', maxWidth: 300}}>
                   {currentAddress.length > 0
-                    ? currentAddress
+                    ? 'Localização Coletada  '
                     : 'Ativar Localização'}
                 </Text>
               </View>
@@ -84,7 +84,11 @@ const Address: React.FC<Navigation> = ({navigation}) => {
           <View style={styles.line}>
             <CardAddress
               onPress={() => console.log('')}
-              text={'Rua Darci Bittencourt 1692, São Paulo - SP, 02726-030'}
+              text={
+                currentAddress.length > 0
+                  ? currentAddress
+                  : 'Rua Darci Bittencourt 1692, São Paulo - SP, 02726-030'
+              }
               homeAddress={true}
             />
             <CardAddress

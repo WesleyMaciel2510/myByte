@@ -126,7 +126,7 @@ const Category: React.FC<Navigation> = ({navigation}) => {
             }
             title={'MCDonalds - Unidade Centro'}
             text={'Lanche'}
-            imgPath={require('../../assets/images/mddonalds.jpg')}
+            imgPath={require('../../assets/images/mcdonalds.jpg')}
           />
           <CardStore
             onPress={() =>
@@ -134,7 +134,7 @@ const Category: React.FC<Navigation> = ({navigation}) => {
             }
             title={'MCDonalds - Unidade Centro'}
             text={'Lanche'}
-            imgPath={require('../../assets/images/mddonalds.jpg')}
+            imgPath={require('../../assets/images/mcdonalds.jpg')}
           />
           <CardStore
             onPress={() =>
@@ -142,7 +142,7 @@ const Category: React.FC<Navigation> = ({navigation}) => {
             }
             title={'MCDonalds - Unidade Centro'}
             text={'Lanche'}
-            imgPath={require('../../assets/images/mddonalds.jpg')}
+            imgPath={require('../../assets/images/mcdonalds.jpg')}
           />
           <CardStore
             onPress={() =>
@@ -150,7 +150,7 @@ const Category: React.FC<Navigation> = ({navigation}) => {
             }
             title={'MCDonalds - Unidade Centro'}
             text={'Lanche'}
-            imgPath={require('../../assets/images/mddonalds.jpg')}
+            imgPath={require('../../assets/images/mcdonalds.jpg')}
           />
         </View>
       </ScrollView>

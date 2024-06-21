@@ -82,7 +82,7 @@ const StoresList: React.FC<Navigation> = ({navigation}) => {
             }}
             title={'MCDonalds - Unidade Centro'}
             text={'Lanches'}
-            imgPath={require('../../assets/images/mddonalds.jpg')}
+            imgPath={require('../../assets/images/mcdonalds.jpg')}
           />
           <CardStore
             onPress={() => {
@@ -91,19 +91,19 @@ const StoresList: React.FC<Navigation> = ({navigation}) => {
             }}
             title={'MCDonalds - Unidade Centro'}
             text={'Lanches'}
-            imgPath={require('../../assets/images/mddonalds.jpg')}
+            imgPath={require('../../assets/images/mcdonalds.jpg')}
           />
           <CardStore
             onPress={() => console.log('')}
             title={'MCDonalds - Unidade Centro'}
             text={'Lanches'}
-            imgPath={require('../../assets/images/mddonalds.jpg')}
+            imgPath={require('../../assets/images/mcdonalds.jpg')}
           />
           <CardStore
             onPress={() => console.log('')}
             title={'MCDonalds - Unidade Centro'}
             text={'Lanches'}
-            imgPath={require('../../assets/images/mddonalds.jpg')}
+            imgPath={require('../../assets/images/mcdonalds.jpg')}
           />
         </View>
       </ScrollView>

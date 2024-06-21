@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightgreen',
     borderWidth: 2,
     borderColor: 'gray',
-    margin: 10,
+    marginRight: 20,
     maxWidth: '100%',
     width: '33%',
     height: 120,
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   text: {
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: 'bold',
     maxWidth: 170,
     flexWrap: 'wrap',

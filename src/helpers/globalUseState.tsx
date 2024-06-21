@@ -12,6 +12,8 @@ export const useStateVariables = () => {
   const [typeOfProduct, setTypeOfProduct] = useState('');
   const [currentOrder, setCurrentOrder] = useState<Order[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [paymentType, setPaymentType] = useState('');
+  const [screenName, setScreenName] = useState('');
   return {
     internetOn,
     setInternetOn,
@@ -31,6 +33,10 @@ export const useStateVariables = () => {
     setCurrentOrder,
     totalPrice,
     setTotalPrice,
+    paymentType,
+    setPaymentType,
+    screenName,
+    setScreenName,
   };
 };
 

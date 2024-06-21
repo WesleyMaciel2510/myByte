@@ -31,15 +31,15 @@ const Profile: React.FC<Navigation> = ({navigation}) => {
           />
           <View style={globalStyles.divider} />
           <UserSection
-            onPress={() => console.log('apertou')}
+            onPress={() => navigation.navigate('Payment')}
             text={'Pagamentos'}
-            iconName={'credit-card'}
+            iconName={'credit-card-alt'}
           />
           <View style={globalStyles.divider} />
           <UserSection
             onPress={() => console.log('apertou')}
             text={'Dados da Conta'}
-            iconName={'newspaper-o'}
+            iconName={'address-card'}
           />
           <View style={globalStyles.divider} />
           <UserSection

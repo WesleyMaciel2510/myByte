@@ -42,7 +42,7 @@ const RatingStars = () => {
 
       {selectedStars.map((selected, index) => (
         <TouchableOpacity key={index} onPress={() => handleSelect(index)}>
-          <Icon name={selected ? 'star-o' : 'star'} size={40} color="#f0ed3a" />
+          <Icon name={selected ? 'star' : 'star-o'} size={40} color="#f0ed3a" />
         </TouchableOpacity>
       ))}
     </View>

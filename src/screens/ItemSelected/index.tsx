@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
-  FlatList,
   Image,
   SafeAreaView,
   ScrollView,
@@ -20,8 +19,13 @@ import Button from '../../components/Button/button';
 import {Order} from '../../context/interface';
 
 const ItemSelected: React.FC<Navigation> = ({navigation}) => {
-  const {itemSelected, storeSelected, currentOrder, setCurrentOrder} =
-    useSharedGlobalState();
+  const {
+    itemSelected,
+    storeSelected,
+    currentOrder,
+    setCurrentOrder,
+    setScreenName,
+  } = useSharedGlobalState();
   const {
     productAmount,
     setProductAmount,
@@ -36,6 +40,8 @@ const ItemSelected: React.FC<Navigation> = ({navigation}) => {
   };
   const handleAddProduct = () => {
     console.log('chamou handleAddProduct');
+    setScreenName('BagSection');
+    navigation.navigate('BagSection');
 
     const newOrder: Order = {
       id: currentOrder.length + 1,
@@ -59,19 +65,14 @@ const ItemSelected: React.FC<Navigation> = ({navigation}) => {
   };
   // ============================================================================
   return (
-    <SafeAreaView
-      style={[globalStyles.container, {flexDirection: 'column', padding: 20}]}>
-      <ScrollView>
+    <SafeAreaView style={[globalStyles.container, {flex: 1}]}>
+      <ScrollView contentContainerStyle={{flexGrow: 1}}>
         <TouchableOpacity
           style={{position: 'absolute', left: 0, top: 0}}
           onPress={goBack}>
           <Icon name={'chevron-left'} size={20} color={Colors.red} />
         </TouchableOpacity>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
+        <View style={styles.imageContainer}>
           <Image
             source={require('../../assets/images/stores/items/mc-donalds-910455.jpg')}
             style={styles.image}
@@ -108,7 +109,7 @@ const ItemSelected: React.FC<Navigation> = ({navigation}) => {
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <View style={{flex: 1}}>
                 <Image
-                  source={require('../../assets/images/mddonalds.jpg')}
+                  source={require('../../assets/images/mcdonalds.jpg')}
                   style={styles.itemImage}
                   resizeMode="center"
                 />
@@ -120,7 +121,6 @@ const ItemSelected: React.FC<Navigation> = ({navigation}) => {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginVertical: 5,
                   }}>
                   <Text
                     style={[
@@ -225,6 +225,11 @@ const styles = StyleSheet.create({
     height: 200,
     borderRadius: 15,
   },
+  imageContainer: {
+    flex: 1,
+    width: '100%',
+    height: 200,
+  },
   itemImage: {
     width: 80,
     height: 80,
@@ -251,12 +256,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   contentArea: {
-    padding: 10,
-    marginTop: 10,
+    marginTop: 20,
+    marginHorizontal: 30,
   },
   container: {
     flex: 1,
-    padding: 20,
+    padding: 30,
   },
   divider: {
     height: 3,

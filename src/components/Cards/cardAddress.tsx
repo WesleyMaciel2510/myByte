@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 16,
     color: '#333',
-    maxWidth: 300,
+    maxWidth: 250,
     flexWrap: 'wrap',
     flex: 1,
   },
