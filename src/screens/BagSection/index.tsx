@@ -28,7 +28,7 @@ const BagSection: React.FC<Navigation> = ({navigation}) => {
   // ============================================================================
   const ArrayFoodList = FoodList.flatMap(restaurant => restaurant.data).slice(
     0,
-    4,
+    5,
   );
 
   const renderItem = ({item}) => (
@@ -37,7 +37,7 @@ const BagSection: React.FC<Navigation> = ({navigation}) => {
       cost={item.cost}
       onPress={() => {
         console.log('Pressed:', item.name);
-        setItemSelected([item.name, item.cost]);
+        setItemSelected([item.name, item.cost, item.image]);
         navigation.navigate('ItemSelected');
       }}
       imgPath={require('../../assets/images/restaurant.png')}

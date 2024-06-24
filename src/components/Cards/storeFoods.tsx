@@ -13,11 +13,20 @@ interface CardProps {
   text: string;
   cost: string;
   imgPath?: ImageSourcePropType;
+  bgColor?: string;
 }
 
-const StoreFoods: React.FC<CardProps> = ({onPress, text, cost, imgPath}) => {
+const StoreFoods: React.FC<CardProps> = ({
+  onPress,
+  text,
+  cost,
+  imgPath,
+  bgColor,
+}) => {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.card}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={[styles.card, {backgroundColor: bgColor ? bgColor : '#f5f0f0'}]}>
       <View>
         <Image source={imgPath} style={styles.image} resizeMode="contain" />
       </View>
@@ -37,7 +46,6 @@ const styles = StyleSheet.create({
   card: {
     alignItems: 'center',
     borderRadius: 5,
-    backgroundColor: 'lightgreen',
     borderWidth: 2,
     borderColor: 'gray',
     marginRight: 20,
@@ -48,7 +56,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
-    width: 100,
+    width: 150,
     height: 100,
     borderRadius: 5,
     flex: 1,

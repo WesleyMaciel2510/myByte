@@ -18,7 +18,8 @@ import RowOption from './RowOption';
 import {useSharedState} from './logic';
 import PaymentOption from './PaymentOptions';
 const Payment: React.FC<Navigation> = ({navigation}) => {
-  const {setScreenName, currentOrder, totalPrice} = useSharedGlobalState();
+  const {setScreenName, currentOrder, totalPrice, paymentType} =
+    useSharedGlobalState();
   const {selectPaymentSection, setSelectPaymentSection} = useSharedState();
   // ============================================================================
   const goBack = () => {
@@ -85,7 +86,9 @@ const Payment: React.FC<Navigation> = ({navigation}) => {
                 <RowOption
                   iconName={'credit-card-alt'}
                   titleText={'Formas de Pagamento'}
-                  description={'Escolha uma Opção'}
+                  description={
+                    paymentType.length > 0 ? paymentType : 'Escolha uma Opção'
+                  }
                   onPress={() => {
                     console.log('pressed');
                     setSelectPaymentSection(true);

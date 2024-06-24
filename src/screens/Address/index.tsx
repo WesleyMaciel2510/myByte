@@ -24,7 +24,7 @@ const Address: React.FC<Navigation> = ({navigation}) => {
     navigation.goBack();
   };
   // =====================================================
-  const {currentAddress} = useSharedGlobalState();
+  const {currentAddress, setCurrentAddress} = useSharedGlobalState();
   const handleLocation = useOnHandleLocation();
   return (
     <SafeAreaView>
@@ -83,7 +83,11 @@ const Address: React.FC<Navigation> = ({navigation}) => {
 
           <View style={styles.line}>
             <CardAddress
-              onPress={() => console.log('')}
+              onPress={() =>
+                setCurrentAddress(
+                  'Rua Darci Bittencourt 1692, São Paulo - SP, 02726-030',
+                )
+              }
               text={
                 currentAddress.length > 0
                   ? currentAddress
@@ -92,19 +96,31 @@ const Address: React.FC<Navigation> = ({navigation}) => {
               homeAddress={true}
             />
             <CardAddress
-              onPress={() => console.log('')}
+              onPress={() =>
+                setCurrentAddress(
+                  'Avenida Lions Club, 162 - Vila Santa Cecília, Volta Redonda - RJ, 27260-2503',
+                )
+              }
               text={
                 'Avenida Lions Club, 162 - Vila Santa Cecília, Volta Redonda - RJ, 27260-2503'
               }
             />
             <CardAddress
-              onPress={() => console.log('')}
+              onPress={() =>
+                setCurrentAddress(
+                  'Avenida Munir Abude, 543 - Praia do Morro, Guarapari - ES, 29216-0454',
+                )
+              }
               text={
                 'Avenida Munir Abude, 543 - Praia do Morro, Guarapari - ES, 29216-0454'
               }
             />
             <CardAddress
-              onPress={() => console.log('')}
+              onPress={() =>
+                setCurrentAddress(
+                  'Avenida Afonso Pena 4000, Belo Horizonte - MG, 30130-0091',
+                )
+              }
               text={'Avenida Afonso Pena 4000, Belo Horizonte - MG, 30130-0091'}
             />
           </View>

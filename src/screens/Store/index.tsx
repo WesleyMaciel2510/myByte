@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   FlatList,
   Image,
@@ -26,20 +26,29 @@ const Store: React.FC<Navigation> = ({navigation}) => {
   const match = currentAddress.match(/(.*?\d+)/); //regex to show only
   const streetAndNumber = match ? match[0] : ''; //street and number
   // ============================================================================
-  const ArrayFoodList = FoodList.flatMap(restaurant => restaurant.data);
+  const defaultImage = require('../../assets/images/restaurant.png');
 
-  const renderItem = ({item}) => (
-    <StoreFoods
-      text={item.name}
-      cost={item.cost}
-      onPress={() => {
-        console.log('Pressed:', item.name);
-        setItemSelected([item.name, item.cost]);
-        navigation.navigate('ItemSelected');
-      }}
-      imgPath={require('../../assets/images/restaurant.png')}
-    />
+  //const ArrayFoodList = FoodList.flatMap(restaurant => restaurant.data);
+  const ArrayFoodList = FoodList.flatMap(restaurant => restaurant.data).slice(
+    0,
+    5,
   );
+
+  const renderItem = ({item}) => {
+    const imgPath = item.image ? item.image : defaultImage;
+    return (
+      <StoreFoods
+        text={item.name}
+        cost={item.cost}
+        onPress={() => {
+          console.log('Pressed:', item.name);
+          setItemSelected([item.name, item.cost]);
+          navigation.navigate('ItemSelected');
+        }}
+        imgPath={imgPath}
+      />
+    );
+  };
   // ============================================================================
   const goBack = () => {
     navigation.goBack();
@@ -192,5 +201,4 @@ const styles = StyleSheet.create({
     marginHorizontal: 0,
   },
 });
-
 export default Store;
