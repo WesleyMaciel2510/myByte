@@ -7,7 +7,7 @@ export const useStateVariables = () => {
   const [selectedOption, setSelectedOption] = useState<string | null>(
     'Option Restaurantes',
   );
-  const [productAmount, setProductAmount] = useState(0);
+  const [productAmount, setProductAmount] = useState(1);
   const [productDescription, setProductDescription] = useState('');
   return {
     loading,
@@ -33,11 +33,4 @@ export const flatListImages = [
   require('../../../assets/images/banner/banner1.png'),
   require('../../../assets/images/banner/banner2.png'),
   require('../../../assets/images/banner/banner3.png'),
-  //require('../../../assets/images/banner/banner4.png'),
 ];
-/* const productOrder = {
-  productName: item.name,
-  amount: 1,
-  price: item.cost,
-};
-setCurrentOrder(prevOrder => [...prevOrder, productOrder]); */

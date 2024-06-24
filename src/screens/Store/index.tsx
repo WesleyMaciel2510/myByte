@@ -19,9 +19,9 @@ import StoreFoods from '../../components/Cards/storeFoods';
 import {FoodList} from '../../context/FoodList';
 
 const Store: React.FC<Navigation> = ({navigation}) => {
-  const {currentAddress, storeSelected, setStoreSelected, setItemSelected} =
+  const {currentAddress, storeSelected, setItemSelected} =
     useSharedGlobalState();
-  const {selectedOption, setSelectedOption, setCurrentOrder} = useSharedState();
+  const {selectedOption, setSelectedOption} = useSharedState();
   // ============================================================================
   const match = currentAddress.match(/(.*?\d+)/); //regex to show only
   const streetAndNumber = match ? match[0] : ''; //street and number

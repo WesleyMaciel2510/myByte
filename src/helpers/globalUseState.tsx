@@ -10,10 +10,13 @@ export const useStateVariables = () => {
   const [storeSelected, setStoreSelected] = useState('');
   const [itemSelected, setItemSelected] = useState(['']);
   const [typeOfProduct, setTypeOfProduct] = useState('');
+  const [bagItems, setBagItems] = useState<Order[]>([]);
   const [currentOrder, setCurrentOrder] = useState<Order[]>([]);
+  const [orderHistory, setOrderHistory] = useState<Order[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [paymentType, setPaymentType] = useState('');
   const [screenName, setScreenName] = useState('');
+
   return {
     internetOn,
     setInternetOn,
@@ -29,8 +32,12 @@ export const useStateVariables = () => {
     setItemSelected,
     typeOfProduct,
     setTypeOfProduct,
+    bagItems,
+    setBagItems,
     currentOrder,
     setCurrentOrder,
+    orderHistory,
+    setOrderHistory,
     totalPrice,
     setTotalPrice,
     paymentType,

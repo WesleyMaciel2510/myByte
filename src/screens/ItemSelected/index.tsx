@@ -17,13 +17,15 @@ import {useSharedGlobalState} from '../../helpers/globalUseState';
 import {useSharedState} from './logic';
 import Button from '../../components/Button/button';
 import {Order} from '../../context/interface';
+import {storage} from '../../helpers/storage';
 
 const ItemSelected: React.FC<Navigation> = ({navigation}) => {
   const {
     itemSelected,
     storeSelected,
+    setBagItems,
     currentOrder,
-    setCurrentOrder,
+    orderHistory,
     setScreenName,
   } = useSharedGlobalState();
   const {
@@ -32,7 +34,7 @@ const ItemSelected: React.FC<Navigation> = ({navigation}) => {
     productDescription,
     setProductDescription,
   } = useSharedState();
-
+  console.log('orderHistory = ', orderHistory);
   // ============================================================================
   const handleChange = (value: string) => {
     console.log('Text input value:', value);
@@ -53,9 +55,9 @@ const ItemSelected: React.FC<Navigation> = ({navigation}) => {
     console.log('newOrder = ', newOrder);
 
     if (currentOrder.length === 0) {
-      setCurrentOrder([newOrder]);
+      setBagItems([newOrder]);
     } else {
-      setCurrentOrder(prevState => [...prevState, newOrder]);
+      setBagItems(prevState => [...prevState, newOrder]);
     }
   };
 
@@ -65,7 +67,11 @@ const ItemSelected: React.FC<Navigation> = ({navigation}) => {
   };
   // ============================================================================
   return (
-    <SafeAreaView style={[globalStyles.container, {flex: 1}]}>
+    <SafeAreaView
+      style={{
+        flexDirection: 'column',
+        backgroundColor: '#fff',
+      }}>
       <ScrollView contentContainerStyle={{flexGrow: 1}}>
         <TouchableOpacity
           style={{position: 'absolute', left: 0, top: 0}}
@@ -256,8 +262,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   contentArea: {
-    marginTop: 20,
     marginHorizontal: 30,
+    paddingTop: 20,
   },
   container: {
     flex: 1,

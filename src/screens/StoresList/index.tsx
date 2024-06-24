@@ -94,13 +94,19 @@ const StoresList: React.FC<Navigation> = ({navigation}) => {
             imgPath={require('../../assets/images/mcdonalds.jpg')}
           />
           <CardStore
-            onPress={() => console.log('')}
+            onPress={() => {
+              setStoreSelected('MCDonalds - Unidade Centro');
+              navigation.navigate('Store');
+            }}
             title={'MCDonalds - Unidade Centro'}
             text={'Lanches'}
             imgPath={require('../../assets/images/mcdonalds.jpg')}
           />
           <CardStore
-            onPress={() => console.log('')}
+            onPress={() => {
+              setStoreSelected('MCDonalds - Unidade Centro');
+              navigation.navigate('Store');
+            }}
             title={'MCDonalds - Unidade Centro'}
             text={'Lanches'}
             imgPath={require('../../assets/images/mcdonalds.jpg')}

@@ -3,12 +3,23 @@ import {View, Text, Image, StyleSheet} from 'react-native';
 import {useSharedGlobalState} from '../../helpers/globalUseState';
 import Button from '../Button/button';
 import {useNavigation} from '@react-navigation/native';
+import {storage} from '../../helpers/storage';
+import {updateOrderHistory} from '../../helpers/updateOrderHistory';
+import {Order} from '../../context/interface';
 
 const OrderSummary = () => {
   const navigation = useNavigation();
 
-  const {totalPrice, paymentType, setPaymentType, screenName, setScreenName} =
-    useSharedGlobalState();
+  const {
+    totalPrice,
+    paymentType,
+    setPaymentType,
+    setBagItems,
+    screenName,
+    setScreenName,
+    bagItems,
+    setCurrentOrder,
+  } = useSharedGlobalState();
 
   const imgPath = require('../../assets/images/mcdonalds.jpg');
 
@@ -22,6 +33,7 @@ const OrderSummary = () => {
       <View>
         <Button
           onPress={() => {
+            console.log('screenName ==== ', screenName);
             if (screenName === 'BagSection') {
               console.log(' IR PARA A TELA DE ENDEREÇOS');
               setScreenName('Address');
@@ -32,7 +44,10 @@ const OrderSummary = () => {
               navigation.navigate('Payment');
             } else if (screenName === 'Payment') {
               paymentType.length > 0 || paymentType !== 'selectOption'
-                ? (setScreenName('Orders'), navigation.navigate('Orders'))
+                ? (setScreenName('Orders'),
+                  navigation.navigate('Orders'),
+                  setCurrentOrder(bagItems),
+                  setBagItems([]))
                 : setPaymentType('selectOption');
             } else {
               console.log(' IR PARA A TELA SACOLA');
