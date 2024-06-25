@@ -17,7 +17,6 @@ import {useSharedGlobalState} from '../../helpers/globalUseState';
 import {useSharedState} from './logic';
 import Button from '../../components/Button/button';
 import {Order} from '../../context/interface';
-import {storage} from '../../helpers/storage';
 
 const ItemSelected: React.FC<Navigation> = ({navigation}) => {
   const {
@@ -80,7 +79,7 @@ const ItemSelected: React.FC<Navigation> = ({navigation}) => {
         </TouchableOpacity>
         <View style={styles.imageContainer}>
           <Image
-            source={require('../../assets/images/stores/items/mc-donalds-910455.jpg')}
+            source={require('../../assets/images/stores/mcdonalds/items/mc-donalds-910455.jpg')}
             style={styles.image}
           />
         </View>
@@ -122,7 +121,7 @@ const ItemSelected: React.FC<Navigation> = ({navigation}) => {
               </View>
               <View style={{flex: 4, flexDirection: 'column', paddingLeft: 20}}>
                 <Text style={[styles.text, {paddingRight: 15}]}>
-                  MCDonalds - Unidade Centro
+                  {storeSelected}
                 </Text>
                 <View
                   style={{
@@ -171,12 +170,16 @@ const ItemSelected: React.FC<Navigation> = ({navigation}) => {
           <View style={styles.bottomArea}>
             <View style={styles.iconContainer}>
               <TouchableOpacity
-                onPress={() => setProductAmount(prevAmount => prevAmount - 1)}>
+                onPress={() =>
+                  setProductAmount((prevAmount: number) => prevAmount - 1)
+                }>
                 <Icon name="minus" size={25} color={'#F72020'} />
               </TouchableOpacity>
               <Text style={styles.amountText}>{productAmount}</Text>
               <TouchableOpacity
-                onPress={() => setProductAmount(prevAmount => prevAmount + 1)}>
+                onPress={() =>
+                  setProductAmount((prevAmount: number) => prevAmount + 1)
+                }>
                 <Icon name="plus" size={25} color={'#F72020'} />
               </TouchableOpacity>
             </View>

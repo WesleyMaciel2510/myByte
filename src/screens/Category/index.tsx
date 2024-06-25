@@ -19,7 +19,7 @@ import {useSharedGlobalState} from '../../helpers/globalUseState';
 import CategoryItem from '../../components/Cards/CategoryItem';
 import {flatListImages, useCustomNavigation} from './logic';
 import CardStore from '../../components/Cards/cardStore';
-import {useNavigation} from '@react-navigation/native';
+import {StoresList} from '../../context/StoreList';
 
 const Category: React.FC<Navigation> = ({navigation}) => {
   const {currentAddress, categorySelected, itemSelected, setItemSelected} =
@@ -120,38 +120,17 @@ const Category: React.FC<Navigation> = ({navigation}) => {
           <Text style={[styles.title, {textAlign: 'left', marginBottom: 30}]}>
             Últimas Lojas
           </Text>
-          <CardStore
-            onPress={() =>
-              navigateToScreen('MCDonalds - Unidade Centro', 'Store')
-            }
-            title={'MCDonalds - Unidade Centro'}
-            text={'Lanche'}
-            imgPath={require('../../assets/images/mcdonalds.jpg')}
-          />
-          <CardStore
-            onPress={() =>
-              navigateToScreen('MCDonalds - Unidade Centro', 'Store')
-            }
-            title={'MCDonalds - Unidade Centro'}
-            text={'Lanche'}
-            imgPath={require('../../assets/images/mcdonalds.jpg')}
-          />
-          <CardStore
-            onPress={() =>
-              navigateToScreen('MCDonalds - Unidade Centro', 'Store')
-            }
-            title={'MCDonalds - Unidade Centro'}
-            text={'Lanche'}
-            imgPath={require('../../assets/images/mcdonalds.jpg')}
-          />
-          <CardStore
-            onPress={() =>
-              navigateToScreen('MCDonalds - Unidade Centro', 'Store')
-            }
-            title={'MCDonalds - Unidade Centro'}
-            text={'Lanche'}
-            imgPath={require('../../assets/images/mcdonalds.jpg')}
-          />
+          {StoresList.map(store =>
+            store.data.map(item => (
+              <CardStore
+                key={item.name}
+                onPress={() => navigateToScreen(item.name, 'Store')}
+                title={item.name}
+                text={item.type}
+                imgPath={item.logo}
+              />
+            )),
+          )}
         </View>
       </ScrollView>
     </SafeAreaView>

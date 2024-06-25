@@ -18,7 +18,8 @@ import StoreFoods from '../../components/Cards/storeFoods';
 import {useSharedGlobalState} from '../../helpers/globalUseState';
 import useBackHandler from '../../helpers/useBackHandler';
 const BagSection: React.FC<Navigation> = ({navigation}) => {
-  const {setItemSelected, setScreenName} = useSharedGlobalState();
+  const {setItemSelected, storeSelected, setScreenName, itemSelected} =
+    useSharedGlobalState();
   // ============================================================================
   const goBack = () => {
     setScreenName('ItemSelected');
@@ -26,23 +27,28 @@ const BagSection: React.FC<Navigation> = ({navigation}) => {
   };
   useBackHandler(goBack);
   // ============================================================================
+  const defaultImage = require('../../assets/images/restaurant.png');
+
   const ArrayFoodList = FoodList.flatMap(restaurant => restaurant.data).slice(
     0,
     5,
   );
 
-  const renderItem = ({item}) => (
-    <StoreFoods
-      text={item.name}
-      cost={item.cost}
-      onPress={() => {
-        console.log('Pressed:', item.name);
-        setItemSelected([item.name, item.cost, item.image]);
-        navigation.navigate('ItemSelected');
-      }}
-      imgPath={require('../../assets/images/restaurant.png')}
-    />
-  );
+  const renderItem = ({item}) => {
+    const imgPath = item.image ? item.image : defaultImage;
+    return (
+      <StoreFoods
+        text={item.name}
+        cost={item.cost}
+        onPress={() => {
+          console.log('Pressed:', item.name);
+          setItemSelected([item.name, item.cost]);
+          navigation.navigate('ItemSelected');
+        }}
+        imgPath={imgPath}
+      />
+    );
+  };
   // ============================================================================
   return (
     <SafeAreaView style={[globalStyles.container, styles.container]}>
@@ -70,7 +76,7 @@ const BagSection: React.FC<Navigation> = ({navigation}) => {
               />
             </View>
             <View style={{flex: 4, flexDirection: 'column', paddingLeft: 20}}>
-              <Text style={styles.text}>MCDonalds - Unidade Centro</Text>
+              <Text style={styles.text}>{storeSelected}</Text>
               <View
                 style={{
                   flexDirection: 'row',
@@ -103,7 +109,7 @@ const BagSection: React.FC<Navigation> = ({navigation}) => {
               resizeMode="center"
             />
             <View style={{flexDirection: 'column'}}>
-              <Text style={styles.text}> 2 Sanduíches com desconto</Text>
+              <Text style={styles.text}> {itemSelected[0]}</Text>
               <View>
                 <Text
                   style={[
@@ -111,12 +117,12 @@ const BagSection: React.FC<Navigation> = ({navigation}) => {
                     {
                       fontSize: 20,
                       color: 'green',
+                      fontWeight: 'bold',
                       textAlign: 'left',
                       paddingLeft: 15,
                     },
                   ]}>
-                  R
-                  <Icon name="usd" size={18} color={'green'} /> 8,99
+                  {itemSelected[1]}
                 </Text>
               </View>
             </View>
@@ -182,6 +188,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     color: '#333',
+    maxWidth: 280,
     flexWrap: 'wrap',
   },
   description: {

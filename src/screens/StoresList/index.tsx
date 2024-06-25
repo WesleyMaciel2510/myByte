@@ -77,39 +77,66 @@ const StoresList: React.FC<Navigation> = ({navigation}) => {
 
           <CardStore
             onPress={() => {
-              setStoreSelected('MCDonalds - Unidade Centro');
+              setStoreSelected('mcdonalds');
               navigation.navigate('Store');
             }}
             title={'MCDonalds - Unidade Centro'}
-            text={'Lanches'}
+            text={'Lanche'}
             imgPath={require('../../assets/images/mcdonalds.jpg')}
           />
           <CardStore
             onPress={() => {
-              setStoreSelected('MCDonalds - Unidade Centro');
+              setStoreSelected('burgerking');
               navigation.navigate('Store');
             }}
-            title={'MCDonalds - Unidade Centro'}
-            text={'Lanches'}
-            imgPath={require('../../assets/images/mcdonalds.jpg')}
+            title={'BurgerKing - Shopping'}
+            text={'Lanche'}
+            imgPath={require('../../assets/images/burgerking.png')}
           />
           <CardStore
             onPress={() => {
-              setStoreSelected('MCDonalds - Unidade Centro');
+              setStoreSelected('subway');
               navigation.navigate('Store');
             }}
-            title={'MCDonalds - Unidade Centro'}
-            text={'Lanches'}
-            imgPath={require('../../assets/images/mcdonalds.jpg')}
+            title={'Subway - Avenida Atlântica'}
+            text={'Lanche'}
+            imgPath={require('../../assets/images/subway.png')}
           />
           <CardStore
             onPress={() => {
-              setStoreSelected('MCDonalds - Unidade Centro');
+              setStoreSelected('starbucks');
               navigation.navigate('Store');
             }}
-            title={'MCDonalds - Unidade Centro'}
-            text={'Lanches'}
-            imgPath={require('../../assets/images/mcdonalds.jpg')}
+            title={'Starbucks - Avenida Brasil'}
+            text={'Cafeteria'}
+            imgPath={require('../../assets/images/starbucks.png')}
+          />
+          <CardStore
+            onPress={() => {
+              setStoreSelected('kfc');
+              navigation.navigate('Store');
+            }}
+            title={'KFC - Avenida Sete de Setembro'}
+            text={'Restaurante '}
+            imgPath={require('../../assets/images/kfc.jpg')}
+          />
+          <CardStore
+            onPress={() => {
+              setStoreSelected('dominos');
+              navigation.navigate('Store');
+            }}
+            title={'Dominos Pizza - Avenida João Pessoa'}
+            text={'Pizzaria'}
+            imgPath={require('../../assets/images/dominos.png')}
+          />
+          <CardStore
+            onPress={() => {
+              setStoreSelected('pizzahut');
+              navigation.navigate('Store');
+            }}
+            title={'Pizza Hut - Avenida Presidente Vargas'}
+            text={'Pizzaria'}
+            imgPath={require('../../assets/images/pizzahut.png')}
           />
         </View>
       </ScrollView>

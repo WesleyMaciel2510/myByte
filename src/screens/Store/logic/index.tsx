@@ -22,9 +22,3 @@ export const useInit = () => {
     console.log('useInit working!!');
   }, []);
 };
-export const flatListImages = [
-  require('../../../assets/images/banner/banner1.png'),
-  require('../../../assets/images/banner/banner2.png'),
-  require('../../../assets/images/banner/banner3.png'),
-  //require('../../../assets/images/banner/banner4.png'),
-];

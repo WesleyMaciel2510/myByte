@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   card: {
     alignItems: 'center',
     borderRadius: 5,
-    backgroundColor: 'lightgreen',
+    backgroundColor: '#edebeb',
     borderWidth: 1,
     borderColor: 'gray',
     margin: 10,

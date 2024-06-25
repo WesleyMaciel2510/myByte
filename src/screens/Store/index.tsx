@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {
   FlatList,
   Image,
@@ -17,6 +17,7 @@ import {useSharedGlobalState} from '../../helpers/globalUseState';
 import {useSharedState} from './logic';
 import StoreFoods from '../../components/Cards/storeFoods';
 import {FoodList} from '../../context/FoodList';
+import {StoresList} from '../../context/StoreList';
 
 const Store: React.FC<Navigation> = ({navigation}) => {
   const {currentAddress, storeSelected, setItemSelected} =
@@ -26,9 +27,26 @@ const Store: React.FC<Navigation> = ({navigation}) => {
   const match = currentAddress.match(/(.*?\d+)/); //regex to show only
   const streetAndNumber = match ? match[0] : ''; //street and number
   // ============================================================================
-  const defaultImage = require('../../assets/images/restaurant.png');
+  // =============== STORELIST ==============================
+  // Find the store that matches the storeSelected name
+  const selectedStore = StoresList.find(store =>
+    store.data.some(storeItem => storeItem.name === storeSelected),
+  );
 
-  //const ArrayFoodList = FoodList.flatMap(restaurant => restaurant.data);
+  // Get the storeItem that matches the storeSelected name
+  const storeItem = selectedStore
+    ? selectedStore.data.find(item => item.name === storeSelected)
+    : null;
+  // ============================================================================
+  // =============== FOODLIST =============================
+  const key = storeSelected.split(' ')[0].toLowerCase();
+  const selectedStoreData =
+    FoodList.find(store => store.key === key)?.data || [];
+  console.log(' key === ', key);
+  console.log('namesArray === ', selectedStoreData);
+  // ============================================================================
+  const defaultImage = require('../../assets/images/snack.png');
+
   const ArrayFoodList = FoodList.flatMap(restaurant => restaurant.data).slice(
     0,
     5,
@@ -86,10 +104,7 @@ const Store: React.FC<Navigation> = ({navigation}) => {
         </View>
 
         <View style={styles.contentArea}>
-          <Image
-            source={require('../../assets/images/stores/mcdonalds.store.jpg')}
-            style={styles.image}
-          />
+          {storeItem && <Image source={storeItem.place} style={styles.image} />}
           <Text style={[styles.title, {textAlign: 'left'}]}>
             {storeSelected}
           </Text>
@@ -124,7 +139,7 @@ const Store: React.FC<Navigation> = ({navigation}) => {
           <View style={{marginBottom: 10, height: 230}}>
             <FlatList
               horizontal
-              data={ArrayFoodList}
+              data={selectedStoreData}
               renderItem={renderItem}
               keyExtractor={(item, index) => index.toString()}
             />
@@ -169,10 +184,11 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   image: {
-    marginVertical: 20,
-    width: 500,
-    height: 200,
-    borderRadius: 15,
+    marginBottom: 10,
+    width: 400,
+    height: 250,
+    borderRadius: 30,
+    resizeMode: 'contain',
   },
   orderArea: {
     marginTop: 30,

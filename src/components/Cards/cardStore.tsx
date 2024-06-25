@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: 'bold',
     color: '#333',
+    maxWidth: 200,
     maxHeight: 100,
     flexWrap: 'wrap',
   },

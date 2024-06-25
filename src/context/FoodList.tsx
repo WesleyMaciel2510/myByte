@@ -34,7 +34,7 @@ export const FoodList = [
         name: 'Hamburger CarneQueijo',
         description:
           'A beef patty with cheese, pickles, onions, ketchup, and mustard on a regular bun.',
-        cost: 'R$ 15,90',
+        cost: 'R$ 9,90',
         image: require('../assets/images/stores/mcdonalds/carne-queijo.jpg'),
       },
     ],
@@ -75,7 +75,7 @@ export const FoodList = [
         //image: require('../assets/images/stores/burgerking/veggie-burger.png'),
       },
       {
-        name: 'Batata Frita',
+        name: 'Batata Frita Média',
         description: 'Crispy golden fries seasoned with salt.',
         cost: 'R$ 9,90',
         image: null,
@@ -255,6 +255,50 @@ export const FoodList = [
         cost: 'R$ 8,90',
         image: null,
         //image: require('../assets/images/stores/dominos/pao-de-alho.png'),
+      },
+    ],
+  },
+  {
+    key: 'pizzahut',
+    data: [
+      {
+        name: 'Pepperoni Pizza',
+        description:
+          'Classic pizza topped with generous slices of pepperoni and mozzarella cheese.',
+        cost: 'R$ 34,90',
+        image: null,
+        // image: require('../assets/images/stores/pizzahut/pepperoni-pizza.png'),
+      },
+      {
+        name: 'Margherita Pizza',
+        description:
+          'Traditional pizza with tomato sauce, fresh mozzarella cheese, and basil leaves.',
+        cost: 'R$ 30,90',
+        image: null,
+        // image: require('../assets/images/stores/pizzahut/margherita-pizza.png'),
+      },
+      {
+        name: 'BBQ Chicken Pizza',
+        description:
+          'Pizza topped with BBQ sauce, grilled chicken, onions, and mozzarella cheese.',
+        cost: 'R$ 32,90',
+        image: null,
+        // image: require('../assets/images/stores/pizzahut/bbq-chicken-pizza.png'),
+      },
+      {
+        name: 'Veggie Supreme Pizza',
+        description:
+          'Pizza loaded with fresh vegetables like bell peppers, onions, olives, and mushrooms.',
+        cost: 'R$ 31,90',
+        image: null,
+        // image: require('../assets/images/stores/pizzahut/veggie-supreme-pizza.png'),
+      },
+      {
+        name: 'Garlic Breadsticks',
+        description:
+          'Warm breadsticks topped with garlic butter and Parmesan cheese.',
+        cost: 'R$ 8,90',
+        image: null,
       },
     ],
   },
