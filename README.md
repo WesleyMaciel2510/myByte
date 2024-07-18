@@ -7,9 +7,12 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 ![1](https://github.com/user-attachments/assets/6aa8f1f2-afd6-4b38-baa0-ffac62c2e821)
 ![2](https://github.com/user-attachments/assets/10115ba3-68d5-45c7-bb4b-530d4db8599f)
 ![3](https://github.com/user-attachments/assets/d5ce6e10-f683-4766-8d2c-483619b309b2)
-
 ![4](https://github.com/user-attachments/assets/b78f7ebb-a44e-420e-9b4c-b5d0688814d0)
+
 ![5](https://github.com/user-attachments/assets/1749a556-e9f8-46e8-8e5e-c60da521d9aa)
+![6](https://github.com/user-attachments/assets/86f32083-6a06-429c-9e00-629ba381fc3e)
+![7](https://github.com/user-attachments/assets/0c1ed512-b3eb-48b7-89bb-b9631e4223bc)
+![8](https://github.com/user-attachments/assets/8650cb70-0f66-47cc-97a4-54b9e1ae849d)
 
 
 # Getting Started
