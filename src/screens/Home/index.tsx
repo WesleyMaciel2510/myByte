@@ -18,7 +18,7 @@ import CardHome from '../../components/Cards/cardHome';
 import {globalStyles} from '../../styles/globalStyles';
 import {Colors} from '../../styles/colors';
 import {useSharedGlobalState} from '../../helpers/globalUseState';
-import CardStore from '../../components/Cards/cardStore';
+//import CardStore from '../../components/Cards/cardStore';
 
 const Home: React.FC<Navigation> = ({navigation}) => {
   //const {loading, setLoading} = useSharedState();
@@ -47,7 +47,7 @@ const Home: React.FC<Navigation> = ({navigation}) => {
             />
             <View style={styles.buttonContainer}>
               <Button
-                onPress={() => navigation.navigate('PrivacyPolicy')}
+                onPress={() => navigation.navigate('Search')}
                 text={'Conferir Ofertas'}
                 width={'40%'}
                 color={'#EA0033'}
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   headlineArea: {
     flex: 1,
     width: '100%',
-    height: 300,
+    height: 280,
   },
   contentArea: {
     flex: 2,
